@@ -34,15 +34,16 @@ def rutas():
 
 def tabla():
     for i in datos["rutas"]:
-        #Mods=str([(b["cod_mod"],b["nom_mod"] )for b in i["modulos"]])
-        #{[(b["cod_mod"],b["nom_mod"] )for b in i["modulos"]]} 
-        #Mods="".join([f"{b["cod_mod"]}. {b}\n" for b in i])
         print(f"""
-        ________________________________________
-          -codigo- {i["cod_ruta"]}  -nombre- {i["nom_ruta"]}
-          -modulos-     
+            ________________________________________
+               -codigo- {i["cod_ruta"]}  -nombre- {i["nom_ruta"]}   
+            ---------------Modulos------------------""")
+        for b in i["modulos"]:
+            print(f"""
+              -{b["nom_mod"]}-
+              nombre: {b["nom_mod"]}
+              Temario: {"".join([f"{c} - " for c in b["temario"]])}
 """)
-
 def mcoordi():
     Ban=True
     while Ban:

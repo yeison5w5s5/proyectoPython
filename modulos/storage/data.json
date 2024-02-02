@@ -33,9 +33,35 @@
                     ]
                 }
             ]
+        },
+        {
+            "cod_ruta": 2,
+            "nom_ruta": "Java",
+            "modulos": [
+                {
+                    "cod_mod": 1,
+                    "nom_mod": "fundamentos",
+                    "temario": [
+                        "hola",
+                        "choa",
+                        "nos vemos"
+                    ]
+                },
+                {
+                    "cod_mod": 2,
+                    "nom_mod": "Juli te amo",
+                    "temario": [
+                        "te a mordio un perro",
+                        "mentiras"
+                    ]
+                }
+            ]
         }
     ],
-    "camper": [],
-    "trainer": [],
-    "acudiente": []
+    "camper": [
+
+    ],
+    "trainer": [
+
+    ]
 }
