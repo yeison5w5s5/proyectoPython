@@ -1,3 +1,4 @@
+datos={}
 camper=[]
 trainer=[]
 rutas=[]

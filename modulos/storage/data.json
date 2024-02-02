@@ -1,50 +1,41 @@
 {
-    "horarios":{
-        "mañana":{
-            "1":"06:00-09:30",
-            "2":"10:00-14:00"
+    "horarios": {
+        "ma\u00f1ana": {
+            "1": "06:00-09:30",
+            "2": "10:00-14:00"
         },
-        "tarde":{
-            "3":"14:00-17:30",
-            "4":"18:00-22:00"
+        "tarde": {
+            "3": "14:00-17:30",
+            "4": "18:00-22:00"
         }
     },
-    "rutas":[
+    "rutas": [
         {
-            "cod_ruta":1,
-            "nom_ruta":"Fundamentos de programación",
-            "modulos":[
+            "cod_ruta": 1,
+            "nom_ruta": "Java Script",
+            "modulos": [
                 {
-                    "cod_mod":1,
-                    "nom_mod":"Introducción a la algoritmia",
-                    "temario":""
+                    "cod_mod": 1,
+                    "nom_mod": "Fundamentos de Programacion",
+                    "temario": [
+                        "introduccion a la algoritmia",
+                        "PSeInt",
+                        "Python"
+                    ]
                 },
                 {
-                    "cod_mod":2,
-                    "nom_mod":"PSeInt",
-                    "temario":""
-                },
-                {
-                    "cod_mod":3,
-                    "nom_mod":"Python",
-                    "temario":""
+                    "cod_mod": 2,
+                    "nom_mod": "Programacion web",
+                    "temario": [
+                        "HTML",
+                        "CSS",
+                        "Bootstrap"
+                    ]
                 }
             ]
         }
     ],
-
-    
-    
-
-    "camper":[
-
-    ],
-    "trainer":[
-
-    ],
-    "acudiente":[
-        
-    ]
-        
-    
+    "camper": [],
+    "trainer": [],
+    "acudiente": []
 }

@@ -1,5 +1,5 @@
 from os import system
-from modulos import camper, trainer, coordinacion
+from modulos import camper, trainer, coordinacion, data
 import json
 
 def menu():
@@ -26,8 +26,8 @@ while Ban:
         case(2):
             pass
         case(3):
-            camper.rutas=traejson()
-            coordinacion.coordi()
+            coordinacion.datos=traejson()
+            coordinacion.mcoordi()
         case(4):
             system("clear")
             print("\t===Fin===")
