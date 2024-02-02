@@ -1,6 +1,43 @@
 {
+    "horarios":{
+        "mañana":{
+            "1":"06:00-09:30",
+            "2":"10:00-14:00"
+        },
+        "tarde":{
+            "3":"14:00-17:30",
+            "4":"18:00-22:00"
+        }
+    },
+    "rutas":[
+        {
+            "cod_ruta":1,
+            "nom_ruta":"Fundamentos de programación",
+            "modulos":[
+                {
+                    "cod_mod":1,
+                    "nom_mod":"Introducción a la algoritmia",
+                    "temario":""
+                },
+                {
+                    "cod_mod":2,
+                    "nom_mod":"PSeInt",
+                    "temario":""
+                },
+                {
+                    "cod_mod":3,
+                    "nom_mod":"Python",
+                    "temario":""
+                }
+            ]
+        }
+    ],
+
+    
+    
+
     "camper":[
-        
+
     ],
     "trainer":[
 
@@ -8,5 +45,6 @@
     "acudiente":[
         
     ]
-
+        
+    
 }

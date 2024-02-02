@@ -1,0 +1,3 @@
+camper=[]
+trainer=[]
+rutas=[]
