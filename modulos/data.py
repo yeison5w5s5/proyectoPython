@@ -1,4 +1,2 @@
+import json
 datos={}
-camper=[]
-trainer=[]
-rutas=[]

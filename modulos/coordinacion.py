@@ -7,7 +7,6 @@ def guardar():
         data=json.dumps(datos, indent=4)
         f.write(data)
         f.close()
-
 def modulos():
     lista=[]
     x=True
@@ -45,13 +44,38 @@ def tabla():
               Temario: {"".join([f"{c} - " for c in b["temario"]])}
 """)
 def mcoordi():
-    Ban=True
-    while Ban:
+    x=True
+    while x:
         print("""
         Menu Camper
-            1- Guardar ruta
+            1- Configurar Rutas
+            2- 
+            3- 
+            4- 
+            5- Salir""")
+        opc=int(input("\t"))
+        match(opc):
+            case(1):
+                menurutas()
+            case(2):
+                pass
+            case(3):
+                pass
+            case(4):
+                pass
+            case(5):
+                system("clear")
+                x=False
+            case (_):
+                print("otra vez")
+def menurutas():
+    y=True
+    while y:
+        print("""
+        Menu Camper
+            1- Crear ruta
             2- Editar rutas
-            3- Editar Camper
+            3- Asignar rutas
             4- Eliminar Camper
             5- Salir""")
         opc=int(input("\t"))
@@ -59,13 +83,13 @@ def mcoordi():
             case(1):
                 rutas()
             case(2):
-                tabla()
+                pass
             case(3):
                 pass
             case(4):
                 pass
             case(5):
                 system("clear")
-                Ban=False
+                y=False
             case (_):
                 print("otra vez")

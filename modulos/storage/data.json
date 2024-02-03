@@ -33,35 +33,20 @@
                     ]
                 }
             ]
-        },
-        {
-            "cod_ruta": 2,
-            "nom_ruta": "Java",
-            "modulos": [
-                {
-                    "cod_mod": 1,
-                    "nom_mod": "fundamentos",
-                    "temario": [
-                        "hola",
-                        "choa",
-                        "nos vemos"
-                    ]
-                },
-                {
-                    "cod_mod": 2,
-                    "nom_mod": "Juli te amo",
-                    "temario": [
-                        "te a mordio un perro",
-                        "mentiras"
-                    ]
-                }
-            ]
         }
     ],
     "camper": [
-
+        {
+            "cc_camper": 10042,
+            "nom_camper": "YEISON",
+            "apell_camper": "WILCHEZ",
+            "edad_camper": 21,
+            "Dirr_camper": "CARR17 W",
+            "Estado": "preinscrito",
+            "cc_acudi": 85480,
+            "nom_acudiente": "OMAR WILCHEZ",
+            "cc_trainer": 0
+        }
     ],
-    "trainer": [
-
-    ]
+    "trainer": []
 }

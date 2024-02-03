@@ -22,7 +22,8 @@ while Ban:
     opc=int(input("\t"))
     match(opc):
         case(1):
-            pass
+            camper.datos=traejson()
+            camper.mcamper()
         case(2):
             pass
         case(3):
