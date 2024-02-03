@@ -3,8 +3,9 @@ from modulos import camper, trainer, coordinacion, data
 import json
 
 def menu():
-    print("""
-    Este es el menu principal
+    print()
+    print(f"""
+    \033[1;94m Este es el menu principal \033[0m
         1- Menu Camper
         2- Menu Trainer
         3- Menu Coordinacion

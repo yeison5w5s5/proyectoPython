@@ -33,6 +33,75 @@
                     ]
                 }
             ]
+        },
+        {
+            "cod_ruta": 2,
+            "nom_ruta": "Java",
+            "modulos": [
+                {
+                    "cod_mod": 1,
+                    "nom_mod": "Fundamentos de Programacion",
+                    "temario": [
+                        "introduccion a la algoritmia",
+                        "PSeInt",
+                        "Python"
+                    ]
+                },
+                {
+                    "cod_mod": 2,
+                    "nom_mod": "Programacion web",
+                    "temario": [
+                        "HTML",
+                        "CSS",
+                        "Boots"
+                    ]
+                }
+            ]
+        },
+        {
+            "cod_ruta": 3,
+            "nom_ruta": "C#",
+            "modulos": [
+                {
+                    "cod_mod": 1,
+                    "nom_mod": "programacion formal",
+                    "temario": [
+                        "C#",
+                        "hola"
+                    ]
+                },
+                {
+                    "cod_mod": 2,
+                    "nom_mod": "Bases de Datos",
+                    "temario": [
+                        "Mysql",
+                        "MongoDb",
+                        "Postgresql"
+                    ]
+                }
+            ]
+        },
+        {
+            "cod_ruta": 4,
+            "nom_ruta": "front",
+            "modulos": [
+                {
+                    "cod_mod": 1,
+                    "nom_mod": "html",
+                    "temario": [
+                        "dise\u00f1o",
+                        "practica"
+                    ]
+                },
+                {
+                    "cod_mod": 1,
+                    "nom_mod": "css",
+                    "temario": [
+                        "dise\u00f1o",
+                        "bonito"
+                    ]
+                }
+            ]
         }
     ],
     "camper": [
