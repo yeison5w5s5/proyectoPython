@@ -1,12 +1,20 @@
 from os import system
 import json
 from .data import datos
+from .sistema import continuar
 
 def guardar():
     with open("modulos/storage/data.json", "w") as f:
         data=json.dumps(datos, indent=4)
         f.write(data)
         f.close()
+def traejson():
+    system("clear")
+    with open("modulos/storage/data.json", "r") as f:
+                datos=json.loads(f.read())
+                f.close()
+                return datos
+    
 
 def info(cc):
     data={
@@ -32,7 +40,25 @@ def guardarcam():
     return "Sucessfully Camper"    
 def buscar():
     system("clear")
-    return "The camper is available"
+    codigo=input("Ingresa tu numero de identificacion: ")
+    if codigo in datos["camper"]:
+        camper=datos["camper"][codigo]
+        print(f"""
+                \033[1;94mTus Datos\033[0m
+            ----------------------------
+            Identificacion: {camper["cc_camper"]}
+            Nombre: {camper["nom_camper"]}
+            Apellido: {camper["apell_camper"]}
+            Edad: {camper["edad_camper"]}
+            Direccion: {camper["Dirr_camper"]}
+            CC_acudiente: {camper["cc_acudi"]}
+            Nombre: {camper["nom_acudiente"]}
+            Estado: {camper["Estado"]}""")
+    else:
+        print("Numero de identificacion no reconocido")
+        if continuar()==True:
+            buscar() 
+
 '''def editar():
     system("clear")
     print("""
@@ -92,16 +118,15 @@ def mcamper():
     while Ban:
         print("""
         Menu Camper
-            1- Guardar camper
-            2- Buscar Camper
-            3- Editar Camper
-            4- Eliminar Camper
+            1- Registro camper
+            2- ver mis Datos
             5- Salir""")
         opc=int(input("\t"))
         match(opc):
             case(1):
                 guardarcam()
             case(2):
+                datos=traejson()
                 buscar()
             case(3):
                 editar()

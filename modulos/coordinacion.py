@@ -4,11 +4,18 @@ import readline
 from .sistema import continuar
 from .data import datos
 
+def traejson():
+    system("clear")
+    with open("modulos/storage/data.json", "r") as f:
+                datos=json.loads(f.read())
+                f.close()
+                return datos
 def guardar():
     with open("modulos/storage/data.json", "w") as f:
         data=json.dumps(datos, indent=4)
         f.write(data)
         f.close()
+    datos=traejson()
 
 def preingreso(mensaje, valor_predeterminado):
     readline.set_startup_hook(lambda: readline.insert_text(valor_predeterminado))

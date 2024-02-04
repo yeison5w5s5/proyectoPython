@@ -1,3 +1,5 @@
+from os import system
+import json
 def continuar():
     X=True
     print("""
@@ -16,3 +18,4 @@ def continuar():
             case(_):
                 pass
     return x
+
