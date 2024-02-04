@@ -1,4 +1,5 @@
-def continuar(x):
+def continuar():
+    X=True
     print("""
         ¿Quieres continuar?
                1=Si
@@ -7,6 +8,7 @@ def continuar(x):
     while True:
         match(opc):
             case(1):
+                x=True
                 break
             case(2):
                 x=False

@@ -21,15 +21,16 @@ def preingreso(mensaje, valor_predeterminado):
 def tbMod(i):    
     for b in i["modulos"]:
         print(f"""
-            -{b["cod_mod"]}-{b["nom_mod"]}-
-            nombre: {b["nom_mod"]}
-            Temario: {"".join([f"{c} - " for c in b["temario"]])}""")
+            -{b}-{i["modulos"][b]["nom_mod"]}-
+            nombre: {i["modulos"][b]["nom_mod"]}
+            Temario: {"".join([f"{c} - " for c in i["modulos"][b]["temario"]])}""")
 def tbRuta(i):
+    ruta=datos["rutas"][i]
     print(f"""
             ________________________________________
-               -codigo- {i["cod_ruta"]}  -nombre- {i["nom_ruta"]}   
+               -codigo- {i}  -nombre- {ruta["nom_ruta"]}   
             ---------------Modulos------------------""")
-    tbMod(i)
+    tbMod(ruta)
 def tbRutas():
     for i in datos["rutas"]:
         tbRuta(i)
@@ -63,41 +64,31 @@ def mcoordi():
                 print("otra vez")
 
 
-def modulos():
+def modulos(codigo):
+    lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else {}
+    print(lista)
     x=True
-    lista=[]
     while x:
-        modulo={
-            "cod_mod":int(input("Ingresa el codigo del modulo: ")),
-            "nom_mod":str(input("Ingresa el nombre del modulo: ")),
-            "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
-        }
-        lista.append(modulo)
-        x=continuar(x)
+        codigo=input("Ingresa el codigo del modulo: ")
+        if codigo in lista:
+            print("\033[1;33mYa hay un modulo con este codigo\033[0m")
+        else:
+            modulo={
+                "cod_mod":codigo,
+                "nom_mod":str(input("Ingresa el nombre del modulo: ")),
+                "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
+            }
+            lista[str(codigo)]=modulo
+        x=continuar()
     return lista
 
-def rutas(cod_ruta):
-    idxx=0
-    if cod_ruta=="":
-        a=b=c=""
-    else:
-        for idx,i in enumerate(datos["rutas"]):
-            if int(i["cod_ruta"])==int(cod_ruta):
-                idxx=idx
-                a=cod_ruta
-                b=i["nom_ruta"]
-                c=i["modulos"]
-        
+def rutas(codigo):
     data={
-        "cod_ruta":int(preingreso("Ingrese el codigo de la ruta: ", a)),
-        "nom_ruta":str(preingreso("ingrese el nombre de la ruta: ", b)),
-        "modulos":modulos() if cod_ruta=="" else c
+        "cod_ruta":codigo,
+        "nom_ruta":str(input("ingrese el nombre de la ruta: ")),
+        "modulos":modulos("")
     }
-    if cod_ruta=="":
-        datos["rutas"].append(data)
-    else:
-        datos["rutas"][idxx]["cod_ruta"]=data["cod_ruta"]
-        datos["rutas"][idxx]["nom_ruta"]=data["nom_ruta"]
+    datos["rutas"][str(codigo)]=data
     guardar()
     return "Ruta Guardada"
 
@@ -105,18 +96,27 @@ def editRuta():
     while True:
         tbRutas()
         codigo=input("Ingresa el codigo de la ruta a editar: ")
-        [tbRuta(i) for i in datos["rutas"] if int(i["cod_ruta"])==int(codigo)]
-        if continuar==False:
-            break
-        print("""
-            \033[1;94mMenu de edicion de ruta\033[0m
-            1- Editar Ruta
-            2- Agregar modulos
-            3- Rehacer ruta""")
-        opc=int(input())
-        match(opc):
-            case(1):
-                rutas(codigo)
+        if codigo in datos["rutas"]:
+            tbRuta(codigo)
+            if continuar==False:
+                break
+            print("""
+                \033[1;94mMenu de edicion de ruta\033[0m
+                1- Editar Ruta
+                2- Agregar modulos
+                3- Rehacer ruta""")
+            opc=int(input())
+            match(opc):
+                case(1):
+                    rutas(codigo)
+                case(2):
+                    modulos(codigo)
+                    guardar()
+
+        else:
+            print("No se encontro ruta con este codigo")
+            if continuar()==False:
+                break
 
 
 def menurutas():
@@ -133,7 +133,14 @@ def menurutas():
         system("clear")
         match(opc):
             case(1):
-                rutas("")
+                def prueba():
+                    codigo=input("ingrese el codigo de la ruta:")
+                    if codigo in datos["rutas"]:
+                        print("\033[1;33mYa hay una ruta con este codigo\033[0m")
+                        return "bye" if continuar()==False else prueba()
+                    else:
+                        rutas(codigo)
+                prueba()
             case(2):
                 editRuta()
             case(3):

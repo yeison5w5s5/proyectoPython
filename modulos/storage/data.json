@@ -9,12 +9,12 @@
             "4": "18:00-22:00"
         }
     },
-    "rutas": [
-        {
+    "rutas": {
+        "1": {
             "cod_ruta": 1,
             "nom_ruta": "Java Script",
-            "modulos": [
-                {
+            "modulos": {
+                "1": {
                     "cod_mod": 1,
                     "nom_mod": "Fundamentos de Programacion",
                     "temario": [
@@ -23,7 +23,7 @@
                         "Python"
                     ]
                 },
-                {
+                "2": {
                     "cod_mod": 2,
                     "nom_mod": "Programacion web",
                     "temario": [
@@ -31,14 +31,22 @@
                         "CSS",
                         "Bootstrap"
                     ]
+                },
+                "3": {
+                    "cod_mod": "3",
+                    "nom_mod": "pss",
+                    "temario": [
+                        "p",
+                        "s"
+                    ]
                 }
-            ]
+            }
         },
-        {
+        "2": {
             "cod_ruta": 2,
             "nom_ruta": "Java",
-            "modulos": [
-                {
+            "modulos": {
+                "1": {
                     "cod_mod": 1,
                     "nom_mod": "Fundamentos de Programacion",
                     "temario": [
@@ -47,7 +55,7 @@
                         "Python"
                     ]
                 },
-                {
+                "2": {
                     "cod_mod": 2,
                     "nom_mod": "Programacion web",
                     "temario": [
@@ -56,13 +64,13 @@
                         "Boots"
                     ]
                 }
-            ]
+            }
         },
-        {
+        "3": {
             "cod_ruta": 3,
             "nom_ruta": "C#",
-            "modulos": [
-                {
+            "modulos": {
+                "1": {
                     "cod_mod": 1,
                     "nom_mod": "programacion formal",
                     "temario": [
@@ -70,7 +78,7 @@
                         "hola"
                     ]
                 },
-                {
+                "2": {
                     "cod_mod": 2,
                     "nom_mod": "Bases de Datos",
                     "temario": [
@@ -79,13 +87,13 @@
                         "Postgresql"
                     ]
                 }
-            ]
+            }
         },
-        {
+        "4": {
             "cod_ruta": 4,
             "nom_ruta": "front",
-            "modulos": [
-                {
+            "modulos": {
+                "1": {
                     "cod_mod": 1,
                     "nom_mod": "html",
                     "temario": [
@@ -93,7 +101,7 @@
                         "practica"
                     ]
                 },
-                {
+                "2": {
                     "cod_mod": 1,
                     "nom_mod": "css",
                     "temario": [
@@ -101,11 +109,11 @@
                         "bonito"
                     ]
                 }
-            ]
+            }
         }
-    ],
-    "camper": [
-        {
+    },
+    "camper": {
+        "10042": {
             "cc_camper": 10042,
             "nom_camper": "YEISON",
             "apell_camper": "WILCHEZ",
@@ -115,7 +123,17 @@
             "cc_acudi": 85480,
             "nom_acudiente": "OMAR WILCHEZ",
             "cc_trainer": 0
+        },
+        "34": {
+            "cc_camper": 34,
+            "nom_camper": "TR",
+            "apell_camper": "TR",
+            "edad_camper": 45,
+            "Dirr_camper": "RE4",
+            "Estado": "preinscrito",
+            "cc_acudi": 43,
+            "nom_acudiente": "DGDGD"
         }
-    ],
-    "trainer": []
+    },
+    "trainer": {}
 }

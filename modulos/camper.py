@@ -8,9 +8,9 @@ def guardar():
         f.write(data)
         f.close()
 
-def info():
+def info(cc):
     data={
-        "cc_camper":int(input("Ingrese numerpo de identificacion: ")),
+        "cc_camper":cc,
         "nom_camper":str.upper(input("Ingrese su nombre: ")),
         "apell_camper":str.upper(input("Ingrese su apellido: ")),
         "edad_camper":int(input("Ingrese su edad: ")),
@@ -22,9 +22,13 @@ def info():
     return data
 
 def guardarcam():
-    system("clear")
-    datos["camper"].append(info())
-    guardar()
+    cc=int(input("Ingrese numero de identificacion: "))
+    if str(cc) in datos["camper"]:
+        print("Este numero ya existe")
+        guardarcam()
+    else:
+        datos["camper"][cc]=info(cc)
+        guardar()
     return "Sucessfully Camper"    
 def buscar():
     system("clear")
