@@ -1,13 +1,9 @@
 {
     "horarios": {
-        "ma\u00f1ana": {
-            "1": "06:00-09:30",
-            "2": "10:00-14:00"
-        },
-        "tarde": {
-            "3": "14:00-17:30",
-            "4": "18:00-22:00"
-        }
+        "1": "06:00-09:30",
+        "2": "10:00-14:00",
+        "3": "14:00-17:30",
+        "4": "18:00-22:00"
     },
     "rutas": {
         "1": {
@@ -162,7 +158,39 @@
             "Estado": "preinscrito",
             "cc_acudi": 123,
             "nom_acudiente": "LIL"
+        },
+        "345": {
+            "cc_camper": 345,
+            "nom_camper": "RTER",
+            "apell_camper": "ERE",
+            "edad_camper": 12,
+            "Dirr_camper": "ERRE",
+            "Estado": "preinscrito",
+            "cc_acudi": 34,
+            "nom_acudiente": "FGFGF"
+        },
+        "8909": {
+            "cc_camper": 8909,
+            "nom_camper": "YELI",
+            "apell_camper": "YOLE",
+            "edad_camper": 21,
+            "Dirr_camper": "CAR45",
+            "Estado": "preinscrito",
+            "cc_acudi": 45,
+            "nom_acudiente": "TYT"
         }
     },
-    "trainer": {}
+    "trainer": {
+        "1": {
+            "cc_trainer": "1",
+            "nom_trainer": "MIGUEL",
+            "cod_horaio": [
+                "1",
+                "1",
+                "0",
+                "0"
+            ]
+        }
+    },
+    "asignaciones": {}
 }

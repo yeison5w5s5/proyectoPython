@@ -1,5 +1,5 @@
 from os import system
-from modulos import camper, trainer, coordinacion, data, ruta
+from modulos import sistema, camper, trainer, coordinacion, data, ruta
 import json
 
 def menu():
@@ -11,12 +11,9 @@ def menu():
            2- Trainer
            3- Coordinacion
            4- Salir""")
-def traejson():
-    system("clear")
-    with open("modulos/storage/data.json", "r") as f:
-                datos=json.loads(f.read())
-                f.close()
-                return datos
+def actualizar(x):
+    if x==1:
+         camper.datos=sistema.traejson()
 Ban=True
 while Ban:
     system("clear")
@@ -24,12 +21,13 @@ while Ban:
     opc=int(input("\t"))
     match(opc):
         case(1):
-            camper.datos=traejson()
+            camper.datos=sistema.traejson()
             camper.mcamper()
         case(2):
-            pass
+            trainer.datos=sistema.traejson()
+            trainer.mtrainer()
         case(3):
-            coordinacion.datos=traejson()
+            coordinacion.datos=sistema.traejson()
             coordinacion.mcoordi()
         case(4):
             system("clear")

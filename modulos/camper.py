@@ -1,20 +1,8 @@
 from os import system
 import json
 from .data import datos
-from .sistema import continuar
-
-def guardar():
-    with open("modulos/storage/data.json", "w") as f:
-        data=json.dumps(datos, indent=4)
-        f.write(data)
-        f.close()
-def traejson():
-    system("clear")
-    with open("modulos/storage/data.json", "r") as f:
-                datos=json.loads(f.read())
-                f.close()
-                return datos
-    
+from .sistema import continuar, guardar, traejson
+from . import sistema
 
 def info(cc):
     data={
@@ -24,21 +12,23 @@ def info(cc):
         "edad_camper":int(input("Ingrese su edad: ")),
         "Dirr_camper":str.upper(input("Ingrese su direccion: ")),
         "Estado":"preinscrito",
-        "cc_acudi":int(input("Ingrse numnero de identifiacion del acudiente: ")),
+        "cc_acudi":input("Ingrse numnero de identifiacion del acudiente: "),
         "nom_acudiente":str.upper(input("Ingrse nombre completo de su acudiente: ")),
     }
     return data
 
 def guardarcam():
-    cc=int(input("Ingrese numero de identificacion: "))
+    cc=input("Ingrese numero de identificacion: ")
     if str(cc) in datos["camper"]:
         print("Este numero ya existe")
         guardarcam()
     else:
         datos["camper"][cc]=info(cc)
+        sistema.datos=datos
         guardar()
-    return "Sucessfully Camper"    
+    return "Camper"    
 def buscar():
+    datos=traejson()
     system("clear")
     codigo=input("Ingresa tu numero de identificacion: ")
     if codigo in datos["camper"]:
@@ -126,12 +116,7 @@ def mcamper():
             case(1):
                 guardarcam()
             case(2):
-                datos=traejson()
                 buscar()
-            case(3):
-                editar()
-            case(4):
-                eliminar()
             case(5):
                 system("clear")
                 Ban=False

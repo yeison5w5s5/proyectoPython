@@ -1,22 +1,9 @@
 from os import system
 import json
 import readline
-from .sistema import continuar
+from . import sistema
+from .sistema import continuar, guardar, traejson
 from .data import datos
-
-
-def traejson():
-    system("clear")
-    with open("modulos/storage/data.json", "r") as f:
-                datos=json.loads(f.read())
-                f.close()
-                return datos
-def guardar():
-    with open("modulos/storage/data.json", "w") as f:
-        data=json.dumps(datos, indent=4)
-        f.write(data)
-        f.close()
-    datos=traejson()
 
 def tbMod(i):    
     for b in i["modulos"]:
@@ -24,6 +11,7 @@ def tbMod(i):
             -{b}-{i["modulos"][b]["nom_mod"]}-
             nombre: {i["modulos"][b]["nom_mod"]}
             Temario: {"".join([f"{c} - " for c in i["modulos"][b]["temario"]])}""")
+
 def tbRuta(i):
     ruta=datos["rutas"][i]
     print(f"""
@@ -31,10 +19,21 @@ def tbRuta(i):
                -codigo- {i}  -nombre- {ruta["nom_ruta"]}   
             ---------------Modulos------------------""")
     tbMod(ruta)
+
 def tbRutas():
     for i in datos["rutas"]:
         tbRuta(i)
-        
+
+def listar(x):
+        for i in datos[x]:
+            for v in datos[x][i]:
+                print("{:<10}".format(v),end="")
+            print("\n")
+            break
+        for i in datos[x]:
+            for v in datos[x][i]:
+                print("{:<10}".format(str(datos[x][i][v]),),end="")
+            print("\n")
 
 def modulos(codigo):
     lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else {}
@@ -61,10 +60,12 @@ def rutas(codigo):
         "modulos":modulos("")
     }
     datos["rutas"][str(codigo)]=data
+    sistema.datos=datos
     guardar()
     return "Ruta Guardada"
 
 def editRuta():
+    datos=traejson()
     while True:
         tbRutas()
         codigo=input("Ingresa el codigo de la ruta a editar: ")
@@ -90,9 +91,12 @@ def editRuta():
             if continuar()==False:
                 break
 
+def asignar():
+    def listar(x):
+        for i in datos[x]:
+            pass
 
 def menurutas():
-    print(datos)
     y=True
     while y:
         print("""
