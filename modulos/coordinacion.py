@@ -1,23 +1,12 @@
 from os import system
 import json
 import readline
-from .sistema import continuar
+from .sistema import continuar, traejson
 from .data import datos
-from .ruta import menurutas, datos
-from . import ruta
+from .ruta import menurutas
+from .salas import msalas
+from . import salas, ruta 
 
-def traejson():
-    system("clear")
-    with open("modulos/storage/data.json", "r") as f:
-                datos=json.loads(f.read())
-                f.close()
-                return datos
-def guardar():
-    with open("modulos/storage/data.json", "w") as f:
-        data=json.dumps(datos, indent=4)
-        f.write(data)
-        f.close()
-    datos=traejson()
 
 def preingreso(mensaje, valor_predeterminado):
     readline.set_startup_hook(lambda: readline.insert_text(valor_predeterminado))
@@ -29,22 +18,70 @@ def preingreso(mensaje, valor_predeterminado):
 
 
 
+def listar(x):
+        for i in datos[x]:
+            for v in datos[x][i]:
+                print("{:<15}".format(v),end="")
+            print("\n")
+            break
+        for i in datos[x]:
+            for v in datos[x][i]:
+                print("{:<15}".format(str(datos[x][i][v]),),end="")
+            print("\n")
+
+# def asignar():
+#     cc="AS"+str(len(datos["asig"]))
+#     listar("camper")
+#     cCamper=input("dijita la identificacion del camper: ")
+#     if cCamper in datos["camper"]:
+#         listar("trainer")
+#         cTrainer=input("dijita la identificacion del Trainer: ")
+#         if cTrainer in datos["trainer"]:
+
+#     info={
+
+#     }
+
+def masignacion():
+    y=True
+    while y:
+        print("""
+        \033[1;94mMenu Asignacion\033[0m
+            1- Crear asignacion
+            2- Editar asignacion
+            3- Eliminar asignacion
+            4- Salir""")
+        opc=int(input("\t"))
+        system("clear")
+        match(opc):
+            case(1):
+                asignar()
+            case(2):
+                editRuta()
+            case(3):
+                pass
+            case(4):
+                system("clear")
+                y=False
+            case (_):
+                print("otra vez")
 
 def mcoordi():
-    ruta.datos=traejson()
     x=True
     while x:
         print("""
         \033[1;94mMenu Coordinacion\033[0m
             1- Rutas
-            2- 
-            3- 
-            4- 
-            5- Salir""")
+            2- Asignaciones
+            3- Trainer
+            4- Camper
+            5- Salas
+            6- Salir""")
         opc=int(input("\t"))
         system("clear")
         match(opc):
             case(1):
+                ruta.datos=traejson()
                 menurutas()
             case(2):
                 pass
@@ -53,6 +90,9 @@ def mcoordi():
             case(4):
                 pass
             case(5):
+                salas.datos=traejson()
+                msalas()
+            case(6):
                 x=False
             case (_):
                 print("otra vez")

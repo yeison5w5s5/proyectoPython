@@ -24,17 +24,6 @@ def tbRutas():
     for i in datos["rutas"]:
         tbRuta(i)
 
-def listar(x):
-        for i in datos[x]:
-            for v in datos[x][i]:
-                print("{:<10}".format(v),end="")
-            print("\n")
-            break
-        for i in datos[x]:
-            for v in datos[x][i]:
-                print("{:<10}".format(str(datos[x][i][v]),),end="")
-            print("\n")
-
 def modulos(codigo):
     lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else {}
     print(lista)
@@ -77,7 +66,7 @@ def editRuta():
                 \033[1;94mMenu de edicion de ruta\033[0m
                 1- Editar Ruta
                 2- Agregar modulos
-                3- Rehacer ruta""")
+                3- Salir""")
             opc=int(input())
             match(opc):
                 case(1):
@@ -85,17 +74,30 @@ def editRuta():
                 case(2):
                     modulos(codigo)
                     guardar()
+                case(3):
+                    menurutas()
+                case (_):
+                    print("opcion no identificada")
 
         else:
             print("No se encontro ruta con este codigo")
             if continuar()==False:
                 break
 
-def asignar():
-    def listar(x):
-        for i in datos[x]:
-            pass
-
+def eliminarR():
+    tbRutas()
+    cc=input("ingresa el cod de l aruta que quieres eliminar: ")
+    if cc in datos["rutas"]:
+        tbRuta(cc)
+        print("¿Esta es la ruta que quieres eliminar?")
+        datos["rutas"].pop(cc) if continuar()==True else menurutas()
+        sistema.datos=datos
+        guardar()
+        system("clear")
+        print("\033[1;31m\tEliminado\033[0m")
+    else:
+        print("Codigo no identificado:")
+        return eliminarR() if continuar()==True else "bye"
 def menurutas():
     y=True
     while y:
@@ -103,9 +105,8 @@ def menurutas():
         \033[1;94mMenu Rutas\033[0m
             1- Crear ruta
             2- Editar rutas
-            3- Asignar rutas
-            4- Eliminar Camper
-            5- Salir""")
+            3- Eliminar ruta
+            4- Salir""")
         opc=int(input("\t"))
         system("clear")
         match(opc):
@@ -121,11 +122,12 @@ def menurutas():
             case(2):
                 editRuta()
             case(3):
-                pass
+                eliminarR()
             case(4):
-                pass
-            case(5):
                 system("clear")
                 y=False
             case (_):
                 print("otra vez")
+
+
+    

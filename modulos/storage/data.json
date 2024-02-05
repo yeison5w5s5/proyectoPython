@@ -5,6 +5,7 @@
         "3": "14:00-17:30",
         "4": "18:00-22:00"
     },
+    "salas": {},
     "rutas": {
         "1": {
             "cod_ruta": 1,
@@ -81,28 +82,6 @@
                         "Mysql",
                         "MongoDb",
                         "Postgresql"
-                    ]
-                }
-            }
-        },
-        "4": {
-            "cod_ruta": 4,
-            "nom_ruta": "front",
-            "modulos": {
-                "1": {
-                    "cod_mod": 1,
-                    "nom_mod": "html",
-                    "temario": [
-                        "dise\u00f1o",
-                        "practica"
-                    ]
-                },
-                "2": {
-                    "cod_mod": 1,
-                    "nom_mod": "css",
-                    "temario": [
-                        "dise\u00f1o",
-                        "bonito"
                     ]
                 }
             }
@@ -192,5 +171,5 @@
             ]
         }
     },
-    "asignaciones": {}
+    "asig": {}
 }

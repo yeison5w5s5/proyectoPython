@@ -1,11 +1,11 @@
 from os import system
-from modulos import sistema, camper, trainer, coordinacion, data, ruta
+from modulos import sistema, camper, trainer, coordinacion, data
 import json
 
 def menu():
     print()
     print(f"""
-    \033[1;94m Este es el menu principal 
+    \033[1;94m Este es el menu principal elija su rol
         ¿Cual es tu rol?\033[0m
            1- Camper
            2- Trainer
