@@ -1,5 +1,5 @@
 from os import system
-from modulos import camper, trainer, coordinacion, data
+from modulos import camper, trainer, coordinacion, data, ruta
 import json
 
 def menu():
