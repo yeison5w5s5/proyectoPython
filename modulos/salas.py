@@ -1,22 +1,51 @@
 from os import system
-from .sistema import continuar, guardar, traejson
 from . import sistema
+from .sistema import continuar, guardar, traejson, listar, preingreso
 import json
 from .data import datos
 
-def crear():
-    cod= "S0"+str(len(datos["salas"]))
-    datos={
+def crear(a):
+    b,c,cod= ["","",("S0"+str((datos["salas"]["cont"])))] if a=="" else [a["nom_sala"],a["capacida"],a["cod_sala"]]
+    data={
         "cod_sala":cod,
-        "nom_sala":input("ingrese el nombre de la sala: "),
-        "capacida":int(input("Ingrese la capacidad de la sala: "))
+        "nom_sala":preingreso("ingrese el nombre de la sala: ",b),
+        "capacida":preingreso("Ingrese la capacidad de la sala: ",c)
     }
-    datos["salas"][cod]=datos
+    datos["salas"][cod]=data
+    datos["salas"]["cont"]+=1 if a=="" else "nada" 
     sistema.datos=datos
-    guardar()
+    guardar(1)
+
+def editar(a):
+    listar("{:<15}",datos["camper"])
+    cod=str.upper(input("\n Escribe el codigo de la Sala: "))
+    if cod in datos["salas"]:
+        sala=datos["salas"][cod]
+        print(f"""
+    _________________________
+    codigo- {sala["cod_sala"]}
+    nombre- {sala["nom_sala"]}
+    capacidad- {sala["capacida"]}
+    -------------------------
+       Esta es tu sala?
+    """)
+        if continuar()==True:
+            if a==1:
+                crear(sala) 
+            else:
+                datos["salas"].pop(cod)
+                sistema.datos=datos
+                guardar(2)
+        else:
+            msalas()
+    else:
+        print("codigo no identificado")
+        editar() if continuar()==True else msalas()
+
+
 
 def msalas():
-    datos=traejson()
+    datos=traejson
     x=True
     while x:
         print("""
@@ -30,13 +59,13 @@ def msalas():
         system("clear")
         match(opc):
             case(1):
-                crear()
+                crear("")
             case(2):
-                pass
+                editar(1)
             case(3):
-                pass
+                editar(2)
             case(4):
-                pass
+                listar("{:<10}",traejson()["salas"])
             case(5):
                 x=False
             case (_):

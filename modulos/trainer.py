@@ -23,7 +23,7 @@ def info():
         }
         datos["trainer"][cc]=data
         sistema.datos=datos
-        guardar()
+        guardar(1)
     return data
 
 def mtrainer():

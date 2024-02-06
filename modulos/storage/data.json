@@ -5,10 +5,28 @@
         "3": "14:00-17:30",
         "4": "18:00-22:00"
     },
-    "salas": {},
+    "salas": {
+        "cont": 4,
+        "S01": {
+            "cod_sala": "S01",
+            "nom_sala": "6",
+            "capacida": "34"
+        },
+        "S02": {
+            "cod_sala": "S02",
+            "nom_sala": "Kepler",
+            "capacida": "34"
+        },
+        "S03": {
+            "cod_sala": "S03",
+            "nom_sala": "Sopas",
+            "capacida": "45"
+        }
+    },
     "rutas": {
-        "1": {
-            "cod_ruta": 1,
+        "cont":4,
+        "RO1": {
+            "cod_ruta": "R01",
             "nom_ruta": "Java Script",
             "modulos": {
                 "1": {
@@ -39,8 +57,8 @@
                 }
             }
         },
-        "2": {
-            "cod_ruta": 2,
+        "R02": {
+            "cod_ruta": "R02",
             "nom_ruta": "Java",
             "modulos": {
                 "1": {
@@ -63,8 +81,8 @@
                 }
             }
         },
-        "3": {
-            "cod_ruta": 3,
+        "R03": {
+            "cod_ruta": "R03",
             "nom_ruta": "C#",
             "modulos": {
                 "1": {
@@ -97,16 +115,6 @@
             "Estado": "preinscrito",
             "cc_acudi": 85480,
             "nom_acudiente": "OMAR WILCHEZ"
-        },
-        "34": {
-            "cc_camper": 34,
-            "nom_camper": "TR",
-            "apell_camper": "TR",
-            "edad_camper": 45,
-            "Dirr_camper": "RE4",
-            "Estado": "preinscrito",
-            "cc_acudi": 43,
-            "nom_acudiente": "DGDGD"
         },
         "2381": {
             "cc_camper": 2381,
@@ -157,6 +165,16 @@
             "Estado": "preinscrito",
             "cc_acudi": 45,
             "nom_acudiente": "TYT"
+        },
+        "t": {
+            "cc_camper": "t",
+            "nom_camper": "KAREN",
+            "apell_camper": "PINTO",
+            "edad_camper": 23,
+            "Dirr_camper": "CAR45",
+            "Estado": "preinscrito",
+            "cc_acudi": "45",
+            "nom_acudiente": "PEDRO PINTO"
         }
     },
     "trainer": {

@@ -44,13 +44,14 @@ def modulos(codigo):
 
 def rutas(codigo):
     data={
-        "cod_ruta":codigo,
+        "cod_ruta":"R0"+str(datos["rutas"]["cont"]),
         "nom_ruta":str(input("ingrese el nombre de la ruta: ")),
         "modulos":modulos("")
     }
     datos["rutas"][str(codigo)]=data
+    datos["rutas"]["cont"]+=1
     sistema.datos=datos
-    guardar()
+    guardar(1)
     return "Ruta Guardada"
 
 def editRuta():
@@ -73,7 +74,7 @@ def editRuta():
                     rutas(codigo)
                 case(2):
                     modulos(codigo)
-                    guardar()
+                    guardar(1)
                 case(3):
                     menurutas()
                 case (_):
@@ -92,9 +93,7 @@ def eliminarR():
         print("¿Esta es la ruta que quieres eliminar?")
         datos["rutas"].pop(cc) if continuar()==True else menurutas()
         sistema.datos=datos
-        guardar()
-        system("clear")
-        print("\033[1;31m\tEliminado\033[0m")
+        guardar(2)
     else:
         print("Codigo no identificado:")
         return eliminarR() if continuar()==True else "bye"
@@ -111,14 +110,7 @@ def menurutas():
         system("clear")
         match(opc):
             case(1):
-                def prueba():
-                    codigo=input("ingrese el codigo de la ruta:")
-                    if codigo in datos["rutas"]:
-                        print("\033[1;33mYa hay una ruta con este codigo\033[0m")
-                        return "bye" if continuar()==False else prueba()
-                    else:
-                        rutas(codigo)
-                prueba()
+                rutas()
             case(2):
                 editRuta()
             case(3):

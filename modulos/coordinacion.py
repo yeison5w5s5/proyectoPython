@@ -1,33 +1,10 @@
 from os import system
 import json
-import readline
 from .sistema import continuar, traejson
 from .data import datos
 from .ruta import menurutas
 from .salas import msalas
 from . import salas, ruta 
-
-
-def preingreso(mensaje, valor_predeterminado):
-    readline.set_startup_hook(lambda: readline.insert_text(valor_predeterminado))
-    try:
-        entrada_usuario = input(f'{mensaje}')
-    finally:
-        readline.set_startup_hook()
-    return entrada_usuario
-
-
-
-def listar(x):
-        for i in datos[x]:
-            for v in datos[x][i]:
-                print("{:<15}".format(v),end="")
-            print("\n")
-            break
-        for i in datos[x]:
-            for v in datos[x][i]:
-                print("{:<15}".format(str(datos[x][i][v]),),end="")
-            print("\n")
 
 # def asignar():
 #     cc="AS"+str(len(datos["asig"]))
