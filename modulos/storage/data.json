@@ -10,30 +10,53 @@
         "S01": {
             "cod_sala": "S01",
             "nom_sala": "6",
-            "capacida": "34"
+            "capacida": "34",
+            "cod_horaio": [
+                "1",
+                "0",
+                "0",
+                "0"
+            ]
         },
         "S02": {
             "cod_sala": "S02",
             "nom_sala": "Kepler",
-            "capacida": "34"
+            "capacida": "34",
+            "cod_horaio": [
+                "0",
+                "0",
+                "0",
+                "0"
+            ]
         },
         "S03": {
             "cod_sala": "S03",
             "nom_sala": "Sopas",
-            "capacida": "45"
+            "capacida": "45",
+            "cod_horaio": [
+                "0",
+                "0",
+                "0",
+                "0"
+            ]
         }
     },
     "rutas": {
-        "cont":4,
+        "cont": 5,
         "R01": {
             "cod_ruta": "R01",
             "nom_ruta": "Java Script",
-            "modulos": []
+            "modulos": [
+                "M03"
+            ]
         },
         "R02": {
             "cod_ruta": "R02",
             "nom_ruta": "Java",
-            "modulos": []
+            "modulos": [
+                "M01",
+                "M02"
+            ]
         },
         "R03": {
             "cod_ruta": "R03",
@@ -42,39 +65,41 @@
         },
         "R04": {
             "cod_ruta": "R04",
-            "nom_ruta": "Chetos",
-            "modulos":["M01","M02"]
-            }
+            "nom_ruta": " Chet",
+            "modulos": [
+                "M01"
+            ]
+        }
     },
-    "modulos":{
-      "cont":3,
-      "M01": {
-        "cod_mod": "M01",
-        "nom_mod": "Fundamentos de Programacion",
-        "temario": [
-            "introduccion a la algoritmia",
-            "PSeInt",
-            "Python"
-        ]
-      },
-      "M02": {
-          "cod_mod": "M02",
-          "nom_mod": "Programacion web",
-          "temario": [
-              "HTML",
-              "CSS",
-              "Bootstrap"
-          ]
-      },
-      "M03": {
-        "cod_mod": "M07",
-        "nom_mod": "Bases de Datos",
-        "temario": [
-            "Mysql",
-            "MongoDb",
-            "Postgresql"
-        ]
-      }
+    "modulos": {
+        "cont": 3,
+        "M01": {
+            "cod_mod": "M01",
+            "nom_mod": "Fundamentos de Programacion",
+            "temario": [
+                "introduccion a la algoritmia",
+                "PSeInt",
+                "Python"
+            ]
+        },
+        "M02": {
+            "cod_mod": "M02",
+            "nom_mod": "Programacion web",
+            "temario": [
+                "HTML",
+                "CSS",
+                "Bootstrap"
+            ]
+        },
+        "M03": {
+            "cod_mod": "M07",
+            "nom_mod": "Bases de Datos",
+            "temario": [
+                "Mysql",
+                "MongoDb",
+                "Postgresql"
+            ]
+        }
     },
     "camper": {
         "10042": {
@@ -156,8 +181,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 76543,
             "nom_acudiente": "CARLOS GUTIERREZ"
-          },
-          "2382": {
+        },
+        "2382": {
             "cc_camper": 2382,
             "nom_camper": "ROBERTO",
             "apell_camper": "SILVA",
@@ -166,8 +191,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "MARIA SILVA"
-          },
-          "124": {
+        },
+        "124": {
             "cc_camper": 124,
             "nom_camper": "CAROLINA",
             "apell_camper": "MARTINEZ",
@@ -176,8 +201,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 5432,
             "nom_acudiente": "JUAN MARTINEZ"
-          },
-          "1235": {
+        },
+        "1235": {
             "cc_camper": 1235,
             "nom_camper": "FELIPE",
             "apell_camper": "LOPEZ",
@@ -186,8 +211,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 6789,
             "nom_acudiente": "ANDREA LOPEZ"
-          },
-          "346": {
+        },
+        "346": {
             "cc_camper": 346,
             "nom_camper": "VERONICA",
             "apell_camper": "MOLINA",
@@ -196,8 +221,8 @@
             "Estado": "inscrito",
             "cc_acudi": 8765,
             "nom_acudiente": "PEDRO MOLINA"
-          },
-          "8910": {
+        },
+        "8910": {
             "cc_camper": 8910,
             "nom_camper": "FABIOLA",
             "apell_camper": "RAMIREZ",
@@ -206,8 +231,8 @@
             "Estado": "inscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "RICARDO RAMIREZ"
-          },
-          "10044": {
+        },
+        "10044": {
             "cc_camper": 10044,
             "nom_camper": "RICARDO",
             "apell_camper": "PEREZ",
@@ -216,8 +241,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 76543,
             "nom_acudiente": "CARLOS PEREZ"
-          },
-          "2383": {
+        },
+        "2383": {
             "cc_camper": 2383,
             "nom_camper": "LAURA",
             "apell_camper": "LOPEZ",
@@ -226,8 +251,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "MARIA LOPEZ"
-          },
-          "125": {
+        },
+        "125": {
             "cc_camper": 125,
             "nom_camper": "PEDRO",
             "apell_camper": "ALVAREZ",
@@ -236,8 +261,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 5432,
             "nom_acudiente": "JUAN ALVAREZ"
-          },
-          "1236": {
+        },
+        "1236": {
             "cc_camper": 1236,
             "nom_camper": "ANA",
             "apell_camper": "GARCIA",
@@ -246,8 +271,8 @@
             "Estado": "preinscrito",
             "cc_acudi": 6789,
             "nom_acudiente": "ANDRES GARCIA"
-          },
-          "347": {
+        },
+        "347": {
             "cc_camper": 347,
             "nom_camper": "CARLOS",
             "apell_camper": "ROJAS",
@@ -256,8 +281,8 @@
             "Estado": "inscrito",
             "cc_acudi": 8765,
             "nom_acudiente": "PEDRO ROJAS"
-          },
-          "8911": {
+        },
+        "8911": {
             "cc_camper": 8911,
             "nom_camper": "ANDREA",
             "apell_camper": "CASTILLO",
@@ -266,7 +291,7 @@
             "Estado": "inscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "RICARDO CASTILLO"
-          }
+        }
     },
     "trainer": {
         "1": {
@@ -284,111 +309,114 @@
             "cc_trainer": "2",
             "nom_trainer": "juan",
             "cod_horaio": [
-              "1",
-              "1",
-              "1",
-              "0"
+                "1",
+                "1",
+                "1",
+                "0"
             ],
             "Estado": "contratado"
-          },
-          "3": {
+        },
+        "3": {
             "cc_trainer": "3",
-            "nom_trainer": "María",
+            "nom_trainer": "Mar\u00eda",
             "cod_horaio": [
-              "0",
-              "1",
-              "0",
-              "1"
+                "0",
+                "1",
+                "0",
+                "1"
             ],
             "Estado": "pendiente"
-          },
-          "4": {
+        },
+        "4": {
             "cc_trainer": "4",
             "nom_trainer": "Luis",
             "cod_horaio": [
-              "1",
-              "0",
-              "1",
-              "0"
+                "1",
+                "0",
+                "1",
+                "0"
             ],
             "Estado": "contratado"
-          },
-          "5": {
+        },
+        "5": {
             "cc_trainer": "5",
             "nom_trainer": "Ana",
             "cod_horaio": [
-              "0",
-              "0",
-              "1",
-              "1"
+                "0",
+                "0",
+                "1",
+                "1"
             ],
             "Estado": "pendiente"
-          },
-          "6": {
+        },
+        "6": {
             "cc_trainer": "6",
             "nom_trainer": "Pablo",
             "cod_horaio": [
-              "1",
-              "0",
-              "0",
-              "1"
+                "1",
+                "0",
+                "0",
+                "1"
             ],
             "Estado": "contratado"
-          },
-          "7": {
+        },
+        "7": {
             "cc_trainer": "7",
             "nom_trainer": "Carmen",
             "cod_horaio": [
-              "1",
-              "1",
-              "1",
-              "1"
+                "1",
+                "1",
+                "1",
+                "1"
             ],
             "Estado": "pendiente"
-          },
-          "8": {
+        },
+        "8": {
             "cc_trainer": "8",
             "nom_trainer": "Roberto",
             "cod_horaio": [
-              "0",
-              "0",
-              "0",
-              "1"
+                "0",
+                "0",
+                "0",
+                "1"
             ],
             "Estado": "contratado"
-          },
-          "9": {
+        },
+        "9": {
             "cc_trainer": "9",
             "nom_trainer": "Elena",
             "cod_horaio": [
-              "1",
-              "1",
-              "0",
-              "1"
+                "1",
+                "1",
+                "0",
+                "1"
             ],
             "Estado": "pendiente"
-          },
-          "10": {
+        },
+        "10": {
             "cc_trainer": "10",
             "nom_trainer": "Javier",
             "cod_horaio": [
-              "0",
-              "1",
-              "1",
-              "1"
+                "0",
+                "1",
+                "1",
+                "1"
             ],
             "Estado": "contratado"
-          }
+        }
     },
     "asig": {
-      "AS01":{
-        "cod_ruta":"R02",
-        "cod_sala":"S01",
-        "cc_trainer":"3",
-        "campers":["t","8909"],
-        "inicio":"09-01-2024",
-        "fin":"09-10-2024",
-        "cod_horaio":"1"
+        "AS01": {
+            "cod_ruta": "R02",
+            "cod_sala": "S01",
+            "cc_trainer": "0",
+            "campers": [
+                "t",
+                "8909"
+            ],
+            "inicio": "09-01-2024",
+            "fin": "09-10-2024",
+            "cod_horaio": "1"
+        }
     }
-  }
 }

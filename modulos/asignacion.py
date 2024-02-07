@@ -6,27 +6,62 @@ from .data import datos
 
 def asignar():
     mal=0
-    lista={"camper":{"2":"para el salto"},"trainer":{"2":"para el salto"}}
+    cTrainer=""
+    cSala=""
+    listacamper=[]
+    lista={"camper":{"0":"para el salto"},"trainer":{"0":"para el salto"},"salas":{"0":"para salto"}}
     cc="AS"+str(len(datos["asig"]))
     ruta.datos=traejson()
     ruta.tbRutas()
     codRuta=str.upper(input("Escriba el codigo de la ruta: "))
     if codRuta in datos["rutas"]:
-        horario=input("".join([(f'{i}- {datos["horarios"][i]} \n') for i in datos["horarios"]])+"Escriba el codigo del usuario: ")
+        horario=input("".join([(f'{i}- {datos["horarios"][i]} \n') for i in datos["horarios"]])+"Escriba el codigo del horario: ")
         if horario in datos["horarios"]:
+            for b in datos["trainer"]:
+                mal1=0
+                if datos["trainer"][b]["cod_horaio"][int(horario)-1]=="0" or datos["trainer"][b]["Estado"]=="pendiente":
+                    mal1+=1
+                else:
+                    for b1 in datos["asig"]:
+                        if b == datos["asig"][b1]["cc_trainer"] and horario == datos["asig"][b1]["cod_horaio"]:
+                            mal1+=1
+                if mal1==0:
+                    lista["trainer"][b]=datos["trainer"][b]
+            listar("{:<15}",lista["trainer"])
+            while True:
+                cTrainer=input("dijita la identificacion del Trainer: ")
+                if cTrainer not in datos["trainer"]:
+                    print("Codigo no identificado o trainer no disponible")
+                    if continuar()==False:
+                        masignacion()
+                else:
+                    break
+            for s in dict(list(datos["salas"].items())[1:]):
+                mal2=0
+                for s1 in datos["asig"]:
+                    if datos["salas"][s]["cod_horaio"][int(horario)-1]=="1":
+                        mal2+=1
+                if mal2==0:
+                    lista["salas"][s]=datos["salas"][s]
+            listar("{:<10}",lista["salas"])
+            while True:
+                cSala=str.upper(input("dijita el codigo de la sala: "))
+                if cSala not in datos["salas"]:
+                    print("Codigo no identificado o sala no disponible")
+                    if continuar()==False:
+                        masignacion()
+                else:
+                    break
             for i in datos["camper"]:
-                print(i,"_______",type(i))
                 if datos["camper"][i]["Estado"]=="preinscrito":
                     for i1 in datos["asig"]:
-                        print(datos["asig"][i1]["campers"])
-                        if datos["camper"][i] in datos["asig"][i1]["campers"]:
+                        if i in datos["asig"][i1]["campers"]:
                             mal+=1
                             print(mal)
                     if mal==0:
-                        lista["camper"][i]=datos["camper"][i]                     
+                        lista["camper"][i]=datos["camper"][i]                
                     mal=0
-            listar("{:<15}",lista["camper"])
-            listacamper=[]
+            listar("{:<17}",lista["camper"])
             while True:
                 cCamper=input("dijita la identificacion del camper: ")
                 if cCamper in lista["camper"]:
@@ -35,15 +70,8 @@ def asignar():
                     print("cc no identificado o no disponible")
                 if continuar()==False:
                     break
-            for b in datos["trainer"]:
-                if datos["trainer"][b]["cod_horaio"][int(horario)-1]=="1" and datos["trainer"][b]["Estado"]=="contratado":
-                    for b1 in datos["asig"]:
-                        if datos["trainer"][b] not in datos["asig"][b1]["cc_trainer"] and horario != datos["asig"][b1]["cod_horaio"]:
-                            lista["trainer"][b]=datos["trainer"][b]
-            listar("{:<15}",lista["trainer"])
-            cTrainer=input("dijita la identificacion del Trainer: ")
-            if cTrainer in datos["trainer"]:
-                pass
+            dateini=input("Ingresa la fecha de inicion es el siguiente formato: (dd-mm-aaaa): ")
+            datefin=input("Ingresa la fecha de finalizacion es el siguiente formato: (dd-mm-aaaa): ")
                     
                 
 

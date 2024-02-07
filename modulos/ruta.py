@@ -2,7 +2,7 @@ from os import system
 import json
 import readline
 from . import sistema
-from .sistema import continuar, guardar, traejson
+from .sistema import continuar, guardar, traejson, preingreso
 from .data import datos
 
 def tbMod1(b):
@@ -26,18 +26,46 @@ def tbRutas():
     for i in dict(list(datos["rutas"].items())[1:]):
         tbRuta(i)
 def asigMod(codigo):
-    codigo=str.upper(input("ingrese el codigo de la ruta: "))
+    if codigo=="":
+        codigo=str.upper(input("ingrese el codigo de la ruta: "))
     if codigo in datos["rutas"]:
-        print("\t-------Sus modulos---------")
+        if datos["rutas"][codigo]["modulos"]!=[]:
+            print("\t-------Sus modulos---------")
         tbMod(datos["rutas"][codigo])
         print("\t-------para agregar---------")
-        for i in datos["modulos"]:
+        for i in dict(list(datos["modulos"].items())[1:]):
             if i not in datos["rutas"][codigo]["modulos"]:
                 tbMod1(i)
-        
+        while True:
+            cod=str.upper(input("ingrese el codigo del modulo que quiere agregar: "))
+            if cod in datos["modulos"]:
+                if cod not in datos["rutas"][codigo]["modulos"]:
+                    datos["rutas"][codigo]["modulos"].append(cod)
+                else:
+                    print ("Ya tienes este modulo")
+            else:
+                print("Codigo no identificado")
+            if continuar()==False:
+                sistema.datos=datos
+                guardar(1)
+                break
+    else:
+        print("Codigo no identificado")
 
-    
-    lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else []
+def delModR(codigo):
+    if datos["rutas"][codigo]["modulos"]!=[]:
+            print("\t-------Sus modulos---------")
+    tbMod(datos["rutas"][codigo])
+    while True:
+        cod=str.upper(input("ingrese el codigo del modulo que quiere eliminar: "))
+        if cod in datos["rutas"][codigo]["modulos"]:
+            datos["rutas"][codigo]["modulos"].remove(cod)
+        else:
+            print("No tienes este modulo")
+        if continuar()==False:
+            sistema.datos=datos
+            guardar(2)
+            break
 
 def modulos():
     x=True
@@ -55,17 +83,16 @@ def modulos():
             guardar(1)
             menurutas()
             
-    return lista
 
-def rutas():
-    codigo="R0"+str(datos["rutas"]["cont"][0])
+def rutas(cod):
+    codigo,nom= ["R0"+str(datos["rutas"]["cont"])," "] if cod=="" else [cod,datos["rutas"][cod]["nom_ruta"]]
     data={
         "cod_ruta":codigo,
-        "nom_ruta":str(input("ingrese el nombre de la ruta: ")),
-        "modulos":modulos("")
+        "nom_ruta":preingreso("ingrese el nombre de la ruta: ",nom),
+        "modulos":[]
     }
-    datos["rutas"][str(codigo)]=data
-    datos["rutas"]["cont"][0]+=1
+    datos["rutas"][codigo]=data
+    datos["rutas"]["cont"]+=1
     sistema.datos=datos
     guardar(1)
     return "Ruta Guardada"
@@ -76,6 +103,7 @@ def editRuta():
         tbRutas()
         codigo=str.upper(input("Ingresa el codigo de la ruta a editar: "))
         if codigo in datos["rutas"]:
+            system("clear")
             tbRuta(codigo)
             if continuar==False:
                 break
@@ -83,7 +111,8 @@ def editRuta():
                 \033[1;94mMenu de edicion de ruta\033[0m
                 1- Editar Ruta
                 2- Agregar modulos
-                3- Salir""")
+                3- Eliminar modulos
+                4- Salir""")
             opc=int(input())
             match(opc):
                 case(1):
@@ -91,6 +120,8 @@ def editRuta():
                 case(2):
                     asigMod(codigo)
                 case(3):
+                    delModR(codigo)
+                case(4):
                     menurutas()
                 case (_):
                     print("opcion no identificada")
@@ -125,7 +156,7 @@ def menurutas():
         system("clear")
         match(opc):
             case(1):
-                rutas()
+                rutas("")
             case(2):
                 editRuta()
             case(3):

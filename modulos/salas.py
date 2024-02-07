@@ -9,7 +9,13 @@ def crear(a):
     data={
         "cod_sala":cod,
         "nom_sala":preingreso("ingrese el nombre de la sala: ",b),
-        "capacida":preingreso("Ingrese la capacidad de la sala: ",c)
+        "capacida":preingreso("Ingrese la capacidad de la sala: ",c),
+        "cod_horaio": [
+                "0",
+                "0",
+                "0",
+                "0"
+            ]
     }
     datos["salas"][cod]=data
     datos["salas"]["cont"]+=1 if a=="" else "nada" 
@@ -65,7 +71,7 @@ def msalas():
             case(3):
                 editar(2)
             case(4):
-                listar("{:<10}",traejson()["salas"])
+                listar("{:<15}",traejson()["salas"])
             case(5):
                 x=False
             case (_):
