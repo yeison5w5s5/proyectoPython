@@ -215,7 +215,127 @@
             "Estado": "inscrito",
             "cc_acudi": "45",
             "nom_acudiente": "PEDRO PINTO"
-        }
+        },
+        "10043": {
+            "cc_camper": 10043,
+            "nom_camper": "ANA",
+            "apell_camper": "GUTIERREZ",
+            "edad_camper": 15,
+            "Dirr_camper": "AV. PRINCIPAL",
+            "Estado": "preinscrito",
+            "cc_acudi": 76543,
+            "nom_acudiente": "CARLOS GUTIERREZ"
+          },
+          "2382": {
+            "cc_camper": 2382,
+            "nom_camper": "ROBERTO",
+            "apell_camper": "SILVA",
+            "edad_camper": 18,
+            "Dirr_camper": "CALLE 22",
+            "Estado": "preinscrito",
+            "cc_acudi": 9876,
+            "nom_acudiente": "MARIA SILVA"
+          },
+          "124": {
+            "cc_camper": 124,
+            "nom_camper": "CAROLINA",
+            "apell_camper": "MARTINEZ",
+            "edad_camper": 17,
+            "Dirr_camper": "CARRERA 15",
+            "Estado": "preinscrito",
+            "cc_acudi": 5432,
+            "nom_acudiente": "JUAN MARTINEZ"
+          },
+          "1235": {
+            "cc_camper": 1235,
+            "nom_camper": "FELIPE",
+            "apell_camper": "LOPEZ",
+            "edad_camper": 16,
+            "Dirr_camper": "CARRERA 30",
+            "Estado": "preinscrito",
+            "cc_acudi": 6789,
+            "nom_acudiente": "ANDREA LOPEZ"
+          },
+          "346": {
+            "cc_camper": 346,
+            "nom_camper": "VERONICA",
+            "apell_camper": "MOLINA",
+            "edad_camper": 14,
+            "Dirr_camper": "AVENIDA 5",
+            "Estado": "inscrito",
+            "cc_acudi": 8765,
+            "nom_acudiente": "PEDRO MOLINA"
+          },
+          "8910": {
+            "cc_camper": 8910,
+            "nom_camper": "FABIOLA",
+            "apell_camper": "RAMIREZ",
+            "edad_camper": 16,
+            "Dirr_camper": "CALLE 10",
+            "Estado": "inscrito",
+            "cc_acudi": 9876,
+            "nom_acudiente": "RICARDO RAMIREZ"
+          },
+          "10044": {
+            "cc_camper": 10044,
+            "nom_camper": "RICARDO",
+            "apell_camper": "PEREZ",
+            "edad_camper": 15,
+            "Dirr_camper": "AV. PRINCIPAL",
+            "Estado": "preinscrito",
+            "cc_acudi": 76543,
+            "nom_acudiente": "CARLOS PEREZ"
+          },
+          "2383": {
+            "cc_camper": 2383,
+            "nom_camper": "LAURA",
+            "apell_camper": "LOPEZ",
+            "edad_camper": 18,
+            "Dirr_camper": "CALLE 22",
+            "Estado": "preinscrito",
+            "cc_acudi": 9876,
+            "nom_acudiente": "MARIA LOPEZ"
+          },
+          "125": {
+            "cc_camper": 125,
+            "nom_camper": "PEDRO",
+            "apell_camper": "ALVAREZ",
+            "edad_camper": 17,
+            "Dirr_camper": "CARRERA 15",
+            "Estado": "preinscrito",
+            "cc_acudi": 5432,
+            "nom_acudiente": "JUAN ALVAREZ"
+          },
+          "1236": {
+            "cc_camper": 1236,
+            "nom_camper": "ANA",
+            "apell_camper": "GARCIA",
+            "edad_camper": 16,
+            "Dirr_camper": "CARRERA 30",
+            "Estado": "preinscrito",
+            "cc_acudi": 6789,
+            "nom_acudiente": "ANDRES GARCIA"
+          },
+          "347": {
+            "cc_camper": 347,
+            "nom_camper": "CARLOS",
+            "apell_camper": "ROJAS",
+            "edad_camper": 14,
+            "Dirr_camper": "AVENIDA 5",
+            "Estado": "inscrito",
+            "cc_acudi": 8765,
+            "nom_acudiente": "PEDRO ROJAS"
+          },
+          "8911": {
+            "cc_camper": 8911,
+            "nom_camper": "ANDREA",
+            "apell_camper": "CASTILLO",
+            "edad_camper": 16,
+            "Dirr_camper": "CALLE 10",
+            "Estado": "inscrito",
+            "cc_acudi": 9876,
+            "nom_acudiente": "RICARDO CASTILLO"
+          }
     },
     "trainer": {
         "1": {
@@ -329,5 +449,13 @@
             "Estado": "contratado"
           }
     },
-    "asig": {}
+    "asig": {
+        "cod_ruta":"R02",
+        "cod_sala":"S01",
+        "cc_trainer":"3",
+        "campers":["t","8909"],
+        "inicio":"09-01-2024",
+        "fin":"09-10-2024",
+        "cod_horaio":"1"
+    }
 }
