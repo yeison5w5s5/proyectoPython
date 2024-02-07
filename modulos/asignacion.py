@@ -5,6 +5,7 @@ import json
 from .data import datos
 
 def asignar():
+    mal=0
     lista={"camper":{"2":"para el salto"},"trainer":{"2":"para el salto"}}
     cc="AS"+str(len(datos["asig"]))
     ruta.datos=traejson()
@@ -14,10 +15,16 @@ def asignar():
         horario=input("".join([(f'{i}- {datos["horarios"][i]} \n') for i in datos["horarios"]])+"Escriba el codigo del usuario: ")
         if horario in datos["horarios"]:
             for i in datos["camper"]:
+                print(i,"_______",type(i))
                 if datos["camper"][i]["Estado"]=="preinscrito":
                     for i1 in datos["asig"]:
-                        if datos["camper"][i] not in datos["asig"][i1]["campers"]:
-                            lista["camper"][i]=datos["camper"][i]
+                        print(datos["asig"][i1]["campers"])
+                        if datos["camper"][i] in datos["asig"][i1]["campers"]:
+                            mal+=1
+                            print(mal)
+                    if mal==0:
+                        lista["camper"][i]=datos["camper"][i]                     
+                    mal=0
             listar("{:<15}",lista["camper"])
             listacamper=[]
             while True:

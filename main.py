@@ -2,6 +2,12 @@ from os import system
 from modulos import sistema, camper, trainer, coordinacion, data
 import json
 
+"""
+inscrito  se registro
+paso prueba de ingreso inscrito
+aprobado paso primer modulo
+menos 60 es en riesgo no cambia hasta terminar
+"""
 def menu():
     print()
     print(f"""

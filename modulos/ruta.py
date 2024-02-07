@@ -5,12 +5,14 @@ from . import sistema
 from .sistema import continuar, guardar, traejson
 from .data import datos
 
+def tbMod1(b):
+    print(f"""
+            -{b}-{datos["modulos"][b]["nom_mod"]}-
+            Temario: {"".join([f"{c} - " for c in datos["modulos"][b]["temario"]])}""")
+
 def tbMod(i):    
     for b in i["modulos"]:
-        print(f"""
-            -{b}-{i["modulos"][b]["nom_mod"]}-
-            nombre: {i["modulos"][b]["nom_mod"]}
-            Temario: {"".join([f"{c} - " for c in i["modulos"][b]["temario"]])}""")
+        tbMod1(b)
 
 def tbRuta(i):
     ruta=datos["rutas"][i]
@@ -23,10 +25,21 @@ def tbRuta(i):
 def tbRutas():
     for i in dict(list(datos["rutas"].items())[1:]):
         tbRuta(i)
+def asigMod(codigo):
+    codigo=str.upper(input("ingrese el codigo de la ruta: "))
+    if codigo in datos["rutas"]:
+        print("\t-------Sus modulos---------")
+        tbMod(datos["rutas"][codigo])
+        print("\t-------para agregar---------")
+        for i in datos["modulos"]:
+            if i not in datos["rutas"][codigo]["modulos"]:
+                tbMod1(i)
+        
 
-def modulos(codigo):
-    lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else {}
-    print(lista)
+    
+    lista=datos["rutas"][str(codigo)]["modulos"] if codigo!="" else []
+
+def modulos():
     x=True
     while x:
         cod="M0"+str(datos["rutas"]["cont"][1])
@@ -35,14 +48,11 @@ def modulos(codigo):
             "nom_mod":str(input("Ingresa el nombre del modulo: ")),
             "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
         }
-        lista[str(cod)]=modulo
-        datos["rutas"]["cont"][1]+=1
+        datos["modulos"][cod]=modulo
+        datos["modulos"]["cont"]+=1
         if continuar()==False:
-            if codigo !="":
-                datos["rutas"][codigo]["modulos"]=lista
-                print(datos["rutas"][codigo]["modulos"])
-                sistema.datos=datos
-                guardar(1)
+            sistema.datos=datos
+            guardar(1)
             menurutas()
             
     return lista
@@ -79,7 +89,7 @@ def editRuta():
                 case(1):
                     rutas(codigo)
                 case(2):
-                    modulos(codigo)
+                    asigMod(codigo)
                 case(3):
                     menurutas()
                 case (_):

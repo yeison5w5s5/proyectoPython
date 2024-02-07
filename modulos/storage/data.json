@@ -24,126 +24,57 @@
         }
     },
     "rutas": {
-        "cont": [
-            5,
-            13
-        ],
-        "RO1": {
+        "cont":4,
+        "R01": {
             "cod_ruta": "R01",
             "nom_ruta": "Java Script",
-            "modulos": {
-                "M01": {
-                    "cod_mod": "M01",
-                    "nom_mod": "Fundamentos de Programacion",
-                    "temario": [
-                        "introduccion a la algoritmia",
-                        "PSeInt",
-                        "Python"
-                    ]
-                },
-                "M02": {
-                    "cod_mod": "M02",
-                    "nom_mod": "Programacion web",
-                    "temario": [
-                        "HTML",
-                        "CSS",
-                        "Bootstrap"
-                    ]
-                },
-                "M03": {
-                    "cod_mod": "M03",
-                    "nom_mod": "pss",
-                    "temario": [
-                        "p",
-                        "s"
-                    ]
-                }
-            }
+            "modulos": []
         },
         "R02": {
             "cod_ruta": "R02",
             "nom_ruta": "Java",
-            "modulos": {
-                "M04": {
-                    "cod_mod": "M04",
-                    "nom_mod": "Fundamentos de Programacion",
-                    "temario": [
-                        "introduccion a la algoritmia",
-                        "PSeInt",
-                        "Python"
-                    ]
-                },
-                "M05": {
-                    "cod_mod": "M05",
-                    "nom_mod": "Programacion web",
-                    "temario": [
-                        "HTML",
-                        "CSS",
-                        "Boots"
-                    ]
-                }
-            }
+            "modulos": []
         },
         "R03": {
             "cod_ruta": "R03",
             "nom_ruta": "C#",
-            "modulos": {
-                "M06": {
-                    "cod_mod": "M06",
-                    "nom_mod": "programacion formal",
-                    "temario": [
-                        "C#",
-                        "hola"
-                    ]
-                },
-                "M07": {
-                    "cod_mod": "M07",
-                    "nom_mod": "Bases de Datos",
-                    "temario": [
-                        "Mysql",
-                        "MongoDb",
-                        "Postgresql"
-                    ]
-                }
-            }
+            "modulos": []
         },
         "R04": {
             "cod_ruta": "R04",
             "nom_ruta": "Chetos",
-            "modulos": {
-                "M08": {
-                    "cod_mod": "M08",
-                    "nom_mod": "Activisios",
-                    "temario": [
-                        "cod1",
-                        "cod2"
-                    ]
-                },
-                "M010": {
-                    "cod_mod": "M010",
-                    "nom_mod": "vanguard",
-                    "temario": [
-                        "valo",
-                        "lol"
-                    ]
-                },
-                "M011": {
-                    "cod_mod": "M011",
-                    "nom_mod": "Garena",
-                    "temario": [
-                        "freefire"
-                    ]
-                },
-                "M012": {
-                    "cod_mod": "M012",
-                    "nom_mod": "powershell",
-                    "temario": [
-                        "royale",
-                        "clan"
-                    ]
-                }
+            "modulos":["M01","M02"]
             }
-        }
+    },
+    "modulos":{
+      "cont":3,
+      "M01": {
+        "cod_mod": "M01",
+        "nom_mod": "Fundamentos de Programacion",
+        "temario": [
+            "introduccion a la algoritmia",
+            "PSeInt",
+            "Python"
+        ]
+      },
+      "M02": {
+          "cod_mod": "M02",
+          "nom_mod": "Programacion web",
+          "temario": [
+              "HTML",
+              "CSS",
+              "Bootstrap"
+          ]
+      },
+      "M03": {
+        "cod_mod": "M07",
+        "nom_mod": "Bases de Datos",
+        "temario": [
+            "Mysql",
+            "MongoDb",
+            "Postgresql"
+        ]
+      }
     },
     "camper": {
         "10042": {
@@ -202,7 +133,7 @@
             "apell_camper": "YOLE",
             "edad_camper": 21,
             "Dirr_camper": "CAR45",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 45,
             "nom_acudiente": "TYT"
         },
@@ -212,7 +143,7 @@
             "apell_camper": "PINTO",
             "edad_camper": 23,
             "Dirr_camper": "CAR45",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": "45",
             "nom_acudiente": "PEDRO PINTO"
         },
@@ -450,6 +381,7 @@
           }
     },
     "asig": {
+      "AS01":{
         "cod_ruta":"R02",
         "cod_sala":"S01",
         "cc_trainer":"3",
@@ -458,4 +390,5 @@
         "fin":"09-10-2024",
         "cod_horaio":"1"
     }
+  }
 }
