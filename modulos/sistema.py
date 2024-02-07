@@ -27,9 +27,9 @@ def guardar(a):
         data=json.dumps(datos, indent=4)
         f.write(data)
         f.close()
+    
     print("\t\033[1;32mguardado\033[0m") if a==1 else print("\t\033[1;31mEliminado\033[0m")
     
-
 def traejson():
     system("clear")
     with open("modulos/storage/data.json", "r") as f:

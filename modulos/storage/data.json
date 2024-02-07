@@ -24,13 +24,16 @@
         }
     },
     "rutas": {
-        "cont":4,
+        "cont": [
+            5,
+            13
+        ],
         "RO1": {
             "cod_ruta": "R01",
             "nom_ruta": "Java Script",
             "modulos": {
-                "1": {
-                    "cod_mod": 1,
+                "M01": {
+                    "cod_mod": "M01",
                     "nom_mod": "Fundamentos de Programacion",
                     "temario": [
                         "introduccion a la algoritmia",
@@ -38,8 +41,8 @@
                         "Python"
                     ]
                 },
-                "2": {
-                    "cod_mod": 2,
+                "M02": {
+                    "cod_mod": "M02",
                     "nom_mod": "Programacion web",
                     "temario": [
                         "HTML",
@@ -47,8 +50,8 @@
                         "Bootstrap"
                     ]
                 },
-                "3": {
-                    "cod_mod": "3",
+                "M03": {
+                    "cod_mod": "M03",
                     "nom_mod": "pss",
                     "temario": [
                         "p",
@@ -61,8 +64,8 @@
             "cod_ruta": "R02",
             "nom_ruta": "Java",
             "modulos": {
-                "1": {
-                    "cod_mod": 1,
+                "M04": {
+                    "cod_mod": "M04",
                     "nom_mod": "Fundamentos de Programacion",
                     "temario": [
                         "introduccion a la algoritmia",
@@ -70,8 +73,8 @@
                         "Python"
                     ]
                 },
-                "2": {
-                    "cod_mod": 2,
+                "M05": {
+                    "cod_mod": "M05",
                     "nom_mod": "Programacion web",
                     "temario": [
                         "HTML",
@@ -85,21 +88,58 @@
             "cod_ruta": "R03",
             "nom_ruta": "C#",
             "modulos": {
-                "1": {
-                    "cod_mod": 1,
+                "M06": {
+                    "cod_mod": "M06",
                     "nom_mod": "programacion formal",
                     "temario": [
                         "C#",
                         "hola"
                     ]
                 },
-                "2": {
-                    "cod_mod": 2,
+                "M07": {
+                    "cod_mod": "M07",
                     "nom_mod": "Bases de Datos",
                     "temario": [
                         "Mysql",
                         "MongoDb",
                         "Postgresql"
+                    ]
+                }
+            }
+        },
+        "R04": {
+            "cod_ruta": "R04",
+            "nom_ruta": "Chetos",
+            "modulos": {
+                "M08": {
+                    "cod_mod": "M08",
+                    "nom_mod": "Activisios",
+                    "temario": [
+                        "cod1",
+                        "cod2"
+                    ]
+                },
+                "M010": {
+                    "cod_mod": "M010",
+                    "nom_mod": "vanguard",
+                    "temario": [
+                        "valo",
+                        "lol"
+                    ]
+                },
+                "M011": {
+                    "cod_mod": "M011",
+                    "nom_mod": "Garena",
+                    "temario": [
+                        "freefire"
+                    ]
+                },
+                "M012": {
+                    "cod_mod": "M012",
+                    "nom_mod": "powershell",
+                    "temario": [
+                        "royale",
+                        "clan"
                     ]
                 }
             }
@@ -152,7 +192,7 @@
             "apell_camper": "ERE",
             "edad_camper": 12,
             "Dirr_camper": "ERRE",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 34,
             "nom_acudiente": "FGFGF"
         },
@@ -162,7 +202,7 @@
             "apell_camper": "YOLE",
             "edad_camper": 21,
             "Dirr_camper": "CAR45",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 45,
             "nom_acudiente": "TYT"
         },
@@ -172,7 +212,7 @@
             "apell_camper": "PINTO",
             "edad_camper": 23,
             "Dirr_camper": "CAR45",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": "45",
             "nom_acudiente": "PEDRO PINTO"
         }
@@ -186,8 +226,108 @@
                 "1",
                 "0",
                 "0"
-            ]
-        }
+            ],
+            "Estado": "pendiente"
+        },
+        "2": {
+            "cc_trainer": "2",
+            "nom_trainer": "juan",
+            "cod_horaio": [
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            "Estado": "contratado"
+          },
+          "3": {
+            "cc_trainer": "3",
+            "nom_trainer": "María",
+            "cod_horaio": [
+              "0",
+              "1",
+              "0",
+              "1"
+            ],
+            "Estado": "pendiente"
+          },
+          "4": {
+            "cc_trainer": "4",
+            "nom_trainer": "Luis",
+            "cod_horaio": [
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            "Estado": "contratado"
+          },
+          "5": {
+            "cc_trainer": "5",
+            "nom_trainer": "Ana",
+            "cod_horaio": [
+              "0",
+              "0",
+              "1",
+              "1"
+            ],
+            "Estado": "pendiente"
+          },
+          "6": {
+            "cc_trainer": "6",
+            "nom_trainer": "Pablo",
+            "cod_horaio": [
+              "1",
+              "0",
+              "0",
+              "1"
+            ],
+            "Estado": "contratado"
+          },
+          "7": {
+            "cc_trainer": "7",
+            "nom_trainer": "Carmen",
+            "cod_horaio": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "Estado": "pendiente"
+          },
+          "8": {
+            "cc_trainer": "8",
+            "nom_trainer": "Roberto",
+            "cod_horaio": [
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "Estado": "contratado"
+          },
+          "9": {
+            "cc_trainer": "9",
+            "nom_trainer": "Elena",
+            "cod_horaio": [
+              "1",
+              "1",
+              "0",
+              "1"
+            ],
+            "Estado": "pendiente"
+          },
+          "10": {
+            "cc_trainer": "10",
+            "nom_trainer": "Javier",
+            "cod_horaio": [
+              "0",
+              "1",
+              "1",
+              "1"
+            ],
+            "Estado": "contratado"
+          }
     },
     "asig": {}
 }

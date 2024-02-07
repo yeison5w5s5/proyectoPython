@@ -2,46 +2,7 @@ from os import system
 import json
 from .sistema import continuar, traejson
 from .data import datos
-from .ruta import menurutas
-from .salas import msalas
-from . import salas, ruta 
-
-# def asignar():
-#     cc="AS"+str(len(datos["asig"]))
-#     listar("camper")
-#     cCamper=input("dijita la identificacion del camper: ")
-#     if cCamper in datos["camper"]:
-#         listar("trainer")
-#         cTrainer=input("dijita la identificacion del Trainer: ")
-#         if cTrainer in datos["trainer"]:
-
-#     info={
-
-#     }
-
-def masignacion():
-    y=True
-    while y:
-        print("""
-        \033[1;94mMenu Asignacion\033[0m
-            1- Crear asignacion
-            2- Editar asignacion
-            3- Eliminar asignacion
-            4- Salir""")
-        opc=int(input("\t"))
-        system("clear")
-        match(opc):
-            case(1):
-                asignar()
-            case(2):
-                editRuta()
-            case(3):
-                pass
-            case(4):
-                system("clear")
-                y=False
-            case (_):
-                print("otra vez")
+from . import salas, ruta ,asignacion
 
 def mcoordi():
     x=True
@@ -59,16 +20,17 @@ def mcoordi():
         match(opc):
             case(1):
                 ruta.datos=traejson()
-                menurutas()
+                ruta.menurutas()
             case(2):
-                pass
+                asignacion.datos=traejson()
+                asignacion.masignacion()
             case(3):
                 pass
             case(4):
                 pass
             case(5):
                 salas.datos=traejson()
-                msalas()
+                salas.msalas()
             case(6):
                 x=False
             case (_):

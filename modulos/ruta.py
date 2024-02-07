@@ -21,7 +21,7 @@ def tbRuta(i):
     tbMod(ruta)
 
 def tbRutas():
-    for i in datos["rutas"]:
+    for i in dict(list(datos["rutas"].items())[1:]):
         tbRuta(i)
 
 def modulos(codigo):
@@ -29,27 +29,33 @@ def modulos(codigo):
     print(lista)
     x=True
     while x:
-        codigo=input("Ingresa el codigo del modulo: ")
-        if codigo in lista:
-            print("\033[1;33mYa hay un modulo con este codigo\033[0m")
-        else:
-            modulo={
-                "cod_mod":codigo,
-                "nom_mod":str(input("Ingresa el nombre del modulo: ")),
-                "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
-            }
-            lista[str(codigo)]=modulo
-        x=continuar()
+        cod="M0"+str(datos["rutas"]["cont"][1])
+        modulo={
+            "cod_mod":cod,
+            "nom_mod":str(input("Ingresa el nombre del modulo: ")),
+            "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
+        }
+        lista[str(cod)]=modulo
+        datos["rutas"]["cont"][1]+=1
+        if continuar()==False:
+            if codigo !="":
+                datos["rutas"][codigo]["modulos"]=lista
+                print(datos["rutas"][codigo]["modulos"])
+                sistema.datos=datos
+                guardar(1)
+            menurutas()
+            
     return lista
 
-def rutas(codigo):
+def rutas():
+    codigo="R0"+str(datos["rutas"]["cont"][0])
     data={
-        "cod_ruta":"R0"+str(datos["rutas"]["cont"]),
+        "cod_ruta":codigo,
         "nom_ruta":str(input("ingrese el nombre de la ruta: ")),
         "modulos":modulos("")
     }
     datos["rutas"][str(codigo)]=data
-    datos["rutas"]["cont"]+=1
+    datos["rutas"]["cont"][0]+=1
     sistema.datos=datos
     guardar(1)
     return "Ruta Guardada"
@@ -58,7 +64,7 @@ def editRuta():
     datos=traejson()
     while True:
         tbRutas()
-        codigo=input("Ingresa el codigo de la ruta a editar: ")
+        codigo=str.upper(input("Ingresa el codigo de la ruta a editar: "))
         if codigo in datos["rutas"]:
             tbRuta(codigo)
             if continuar==False:
@@ -74,7 +80,6 @@ def editRuta():
                     rutas(codigo)
                 case(2):
                     modulos(codigo)
-                    guardar(1)
                 case(3):
                     menurutas()
                 case (_):

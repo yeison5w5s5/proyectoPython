@@ -17,7 +17,7 @@ def crear(a):
     guardar(1)
 
 def editar(a):
-    listar("{:<15}",datos["camper"])
+    listar("{:<15}",datos["salas"])
     cod=str.upper(input("\n Escribe el codigo de la Sala: "))
     if cod in datos["salas"]:
         sala=datos["salas"][cod]
