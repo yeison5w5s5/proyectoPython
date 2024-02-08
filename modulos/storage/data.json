@@ -406,7 +406,7 @@
         }
     },
     "asig": {
-        "AS01": {
+        "M0": {
             "cod_ruta": "R02",
             "cod_sala": "S01",
             "cc_trainer": "0",
@@ -416,6 +416,21 @@
             ],
             "inicio": "09-01-2024",
             "fin": "09-10-2024",
+            "cod_horaio": "1"
+        },
+        "M1": {
+            "cod_asig": "M1",
+            "cod_ruta": "R01",
+            "cod_sala": "S02",
+            "cc_trainer": "2",
+            "campers": [
+                "10042",
+                "123",
+                "125",
+                "1236"
+            ],
+            "inicio": "03-05-2024",
+            "fin": "04-12-2024",
             "cod_horaio": "1"
         }
     }

@@ -5,12 +5,12 @@ import json
 from .data import datos
 def continuar():
     X=True
-    print("""
-        ¿Quieres continuar?
-               1=Si
-               2=No""")
-    opc=int(input(""))
     while True:
+        print("""
+            ¿Quieres continuar?
+                1=Si
+                2=No""")
+        opc=int(input(""))
         match(opc):
             case(1):
                 x=True

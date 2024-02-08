@@ -4,19 +4,22 @@ from .sistema import continuar, guardar, traejson, listar, preingreso
 import json
 from .data import datos
 
+
 def asignar():
     mal=0
     cTrainer=""
     cSala=""
     listacamper=[]
     lista={"camper":{"0":"para el salto"},"trainer":{"0":"para el salto"},"salas":{"0":"para salto"}}
-    cc="AS"+str(len(datos["asig"]))
+    cc="M"+str(len(datos["asig"]))
+#eleccion de rutas de rutas
     ruta.datos=traejson()
     ruta.tbRutas()
     codRuta=str.upper(input("Escriba el codigo de la ruta: "))
     if codRuta in datos["rutas"]:
         horario=input("".join([(f'{i}- {datos["horarios"][i]} \n') for i in datos["horarios"]])+"Escriba el codigo del horario: ")
         if horario in datos["horarios"]:
+#eleccion de Trainer
             for b in datos["trainer"]:
                 mal1=0
                 if datos["trainer"][b]["cod_horaio"][int(horario)-1]=="0" or datos["trainer"][b]["Estado"]=="pendiente":
@@ -36,6 +39,7 @@ def asignar():
                         masignacion()
                 else:
                     break
+#eleccion de rutas de Salas
             for s in dict(list(datos["salas"].items())[1:]):
                 mal2=0
                 for s1 in datos["asig"]:
@@ -46,12 +50,13 @@ def asignar():
             listar("{:<10}",lista["salas"])
             while True:
                 cSala=str.upper(input("dijita el codigo de la sala: "))
-                if cSala not in datos["salas"]:
+                if cSala not in lista["salas"]:
                     print("Codigo no identificado o sala no disponible")
                     if continuar()==False:
                         masignacion()
                 else:
                     break
+#eleccion de rutas de campers
             for i in datos["camper"]:
                 if datos["camper"][i]["Estado"]=="preinscrito":
                     for i1 in datos["asig"]:
@@ -70,21 +75,35 @@ def asignar():
                     print("cc no identificado o no disponible")
                 if continuar()==False:
                     break
+#fecha inicio y fin
             dateini=input("Ingresa la fecha de inicion es el siguiente formato: (dd-mm-aaaa): ")
-            datefin=input("Ingresa la fecha de finalizacion es el siguiente formato: (dd-mm-aaaa): ")
-                    
-                
-
-    info={
-        "cod_asig":cc
-    }
+            datefin=input("Ingresa la fecha de finalizacion es el siguiente formato: (dd-mm-aaaa): ")      
+            info={
+                "cod_asig":cc,
+                "cod_ruta": codRuta,
+                "cod_sala": cSala,
+                "cc_trainer": cTrainer,
+                "campers": listacamper,
+                "inicio": dateini,
+                "fin": datefin,
+                "cod_horaio": horario
+            }
+            datos["asig"][cc]=info
+            sistema.datos=datos
+            guardar(1)
+    else:
+        print("Codigo de ruta no identificado")
+        if continuar()==False:
+            asignar()
+        else:
+            masignacion()
 def masignacion():
     y=True
     while y:
         print("""
         \033[1;94mMenu Asignacion\033[0m
-            1- Crear asignacion
-            2- Editar asignacion
+            1- Crear Grupo
+            2- Editar Grupo
             3- Eliminar asignacion
             4- Salir""")
         opc=int(input("\t"))
