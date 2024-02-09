@@ -13,8 +13,8 @@
             "capacida": "34",
             "cod_horaio": [
                 "1",
-                "0",
-                "0",
+                "1",
+                "1",
                 "0"
             ]
         },
@@ -407,30 +407,15 @@
     },
     "asig": {
         "M0": {
-            "cod_ruta": "R02",
-            "cod_sala": "S01",
-            "cc_trainer": "0",
-            "campers": [
-                "t",
-                "8909"
-            ],
-            "inicio": "09-01-2024",
-            "fin": "09-10-2024",
-            "cod_horaio": "1"
-        },
-        "M1": {
-            "cod_asig": "M1",
+            "cod_asig": "M0",
             "cod_ruta": "R01",
-            "cod_sala": "S02",
+            "cod_sala": "",
             "cc_trainer": "2",
             "campers": [
-                "10042",
-                "123",
-                "125",
-                "1236"
+                "t"
             ],
-            "inicio": "03-05-2024",
-            "fin": "04-12-2024",
+            "inicio": "34",
+            "fin": "45",
             "cod_horaio": "1"
         }
     }
