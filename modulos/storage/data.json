@@ -10,8 +10,8 @@
         "S01": {
             "cod_sala": "S01",
             "nom_sala": "6",
-            "capacida": "34",
-            "cod_horaio": [
+            "capacidad": "34",
+            "cod_horario": [
                 "1",
                 "1",
                 "1",
@@ -21,10 +21,10 @@
         "S02": {
             "cod_sala": "S02",
             "nom_sala": "Kepler",
-            "capacida": "34",
-            "cod_horaio": [
-                "0",
-                "0",
+            "capacidad": "34",
+            "cod_horario": [
+                "1",
+                "1",
                 "0",
                 "0"
             ]
@@ -32,10 +32,10 @@
         "S03": {
             "cod_sala": "S03",
             "nom_sala": "Sopas",
-            "capacida": "45",
-            "cod_horaio": [
+            "capacidad": "45",
+            "cod_horario": [
                 "0",
-                "0",
+                "1",
                 "0",
                 "0"
             ]
@@ -297,7 +297,7 @@
         "1": {
             "cc_trainer": "1",
             "nom_trainer": "MIGUEL",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "1",
                 "0",
@@ -308,7 +308,7 @@
         "2": {
             "cc_trainer": "2",
             "nom_trainer": "juan",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "1",
                 "1",
@@ -319,7 +319,7 @@
         "3": {
             "cc_trainer": "3",
             "nom_trainer": "Mar\u00eda",
-            "cod_horaio": [
+            "cod_horario": [
                 "0",
                 "1",
                 "0",
@@ -330,7 +330,7 @@
         "4": {
             "cc_trainer": "4",
             "nom_trainer": "Luis",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "0",
                 "1",
@@ -341,7 +341,7 @@
         "5": {
             "cc_trainer": "5",
             "nom_trainer": "Ana",
-            "cod_horaio": [
+            "cod_horario": [
                 "0",
                 "0",
                 "1",
@@ -352,7 +352,7 @@
         "6": {
             "cc_trainer": "6",
             "nom_trainer": "Pablo",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "0",
                 "0",
@@ -363,7 +363,7 @@
         "7": {
             "cc_trainer": "7",
             "nom_trainer": "Carmen",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "1",
                 "1",
@@ -374,7 +374,7 @@
         "8": {
             "cc_trainer": "8",
             "nom_trainer": "Roberto",
-            "cod_horaio": [
+            "cod_horario": [
                 "0",
                 "0",
                 "0",
@@ -385,7 +385,7 @@
         "9": {
             "cc_trainer": "9",
             "nom_trainer": "Elena",
-            "cod_horaio": [
+            "cod_horario": [
                 "1",
                 "1",
                 "0",
@@ -396,7 +396,7 @@
         "10": {
             "cc_trainer": "10",
             "nom_trainer": "Javier",
-            "cod_horaio": [
+            "cod_horario": [
                 "0",
                 "1",
                 "1",
@@ -408,15 +408,33 @@
     "asig": {
         "M0": {
             "cod_asig": "M0",
-            "cod_ruta": "R01",
-            "cod_sala": "",
+            "cod_ruta": "R03",
+            "cod_sala": "S02",
             "cc_trainer": "2",
             "campers": [
-                "t"
+                "125",
+                "10042",
+                "124",
+                "2382"
             ],
             "inicio": "34",
             "fin": "45",
-            "cod_horaio": "1"
+            "cod_horario": "1"
+        },
+        "M1": {
+            "cod_asig": "M1",
+            "cod_ruta": "R01",
+            "cod_sala": "S03",
+            "cc_trainer": "2",
+            "campers": [
+                "t",
+                "8909",
+                "123",
+                "2381"
+            ],
+            "inicio": "01-02-2025",
+            "fin": "1-10-2025",
+            "cod_horario": "2"
         }
     }
 }
