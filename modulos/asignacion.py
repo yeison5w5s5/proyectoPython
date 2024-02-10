@@ -19,12 +19,11 @@ def validTrainer(horario):
     listar("{:<15}",lista)
     while True:
         cTrainer=input("dijita la identificacion del Trainer: ")
-        if cTrainer not in datos["trainer"]:
-            print("Codigo no identificado o trainer no disponible")
-            if continuar()==False:
+        if cTrainer not in lista:
+            if continuar(2)==False:
                 masignacion()
         else:
-            return(cTrainer)
+            return cTrainer
 #disponibilidad de la sala de vuelve cpdigo de sala
 def validSala(horario):
     lista={"0":"salto"}
@@ -39,8 +38,7 @@ def validSala(horario):
     while True:
         cSala=str.upper(input("dijita el codigo de la sala: "))
         if cSala not in lista:
-            print("Codigo no identificado o sala no disponible")
-            if continuar()==False:
+            if continuar(1)==False:
                 masignacion()
         else:
             datos["salas"][cSala]["cod_horario"][int(horario)-1]="1"
@@ -63,10 +61,11 @@ def validCamper():
         cCamper=input("dijita la identificacion del camper: ")
         if cCamper in lista:
             listacamper.append(cCamper)
+            if continuar("")==False:
+                return listacamper
         else:
-            print("cc no identificado o no disponible")
-        if continuar()==False:
-            return listacamper
+            if continuar(1)==False:
+                return listacamper
 #mustra lista y devuelve codigo de ruta
 def selecRuta():
     ruta.datos=traejson()
@@ -75,14 +74,14 @@ def selecRuta():
     if codRuta in datos["rutas"]:
         return codRuta
     else:
-        selecRuta() if continuar()==True else  masignacion()
+        selecRuta() if continuar(1)==True else  masignacion()
 #Sleccion de horario devuelve codigo
 def selecHorario():
     horario=input("".join([(f'{i}- {datos["horarios"][i]} \n') for i in datos["horarios"]])+"Escriba el codigo del horario: ")
     if horario in datos["horarios"]:
         return horario
     else:
-        selecHorario() if continuar()==True else masignacion()
+        selecHorario() if continuar(1)==True else masignacion()
 # Guarda datos del grupo
 def guardarGrupo(cc,codRuta,horario,cTrainer,cSala,listacamper,dateini,datefin):
     info={
@@ -113,7 +112,7 @@ def printgrupo(cc):
 #pregunta para continuar
 def pregunta():
     print("\t^ Editaras esto ^")
-    return continuar()
+    return continuar("")
 #menu edicon asig
 def editasig(cc):
     codRuta=""
@@ -143,9 +142,9 @@ def editcamper(cc):
           3. Salir
 """)
     while True:
-        opc=int(input(": "))
+        opc=input(": ")
         match(opc):
-            case 1:
+            case "1":
                 print("-------los campers en grupo---------")
                 campergrup(cc)
                 print("-------los campers que puedes agregar---------")
@@ -155,7 +154,7 @@ def editcamper(cc):
                 sistema.datos=datos
                 guardar(1)
                 break
-            case 2:
+            case "2":
                 print("-------los campers en grupo---------")
                 campergrup(cc)
                 while True:
@@ -164,22 +163,26 @@ def editcamper(cc):
                         datos["asig"][cc]["campers"].remove(cCamper)
                         sistema.datos=datos
                         guardar(2)
+                        if continuar("")==False:
+                            break 
                     else:
-                        print("Codigo no identificado")
-                    if continuar()==False:
-                        break 
+                        Editgrupo() if continuar(1)==False else editcamper(cc)
+                    
+                        
                 break
+            case "3":
+                masignacion()
 #Edicion del grupo
 def Editgrupo():
     for i in datos["asig"]:
         print(printgrupo(i))
-    cc=input("Esbribe el codigo del grupo a editar: ")
+    cc=str.upper(input("Esbribe el codigo del grupo a editar: "))
     if cc not in datos["asig"]:
-        ("Codigo no identificado")
+        Editgrupo() if continuar(1)==True else masignacion()
     else:
         print(printgrupo(cc))
         print("\n\t\tEste es el grupo que quieres editar?")
-        if continuar()==False:
+        if continuar("")==False:
             masignacion()
         else:
             while True:
@@ -189,13 +192,13 @@ def Editgrupo():
             2- modificar campers
             3- Salir
         -----------------------------------""")
-                opc=int(input(": "))
+                opc=input(": ")
                 match (opc):
-                    case 1:
+                    case "1":
                         editasig(cc)
-                    case 2:
+                    case "2":
                         editcamper(cc)
-                    case 3:
+                    case "3":
                         masignacion()
                     case _:
                         print("\tOpcion no valida")
@@ -220,6 +223,7 @@ def asignar():
     datefin=input("Ingresa la fecha de finalizacion es el siguiente formato: (dd-mm-aaaa): ")      
 #guardar grupo
     guardarGrupo(cc,codRuta,horario,cTrainer,cSala,listacamper,dateini,datefin)
+
 def delAsig():
     for i in datos["asig"]:
         print(printgrupo(i))
@@ -229,12 +233,13 @@ def delAsig():
     else:
         print(printgrupo(cc))
         print("\n\t\tEste es el grupo que quieres Eliminar?")
-        if continuar()==False:
+        if continuar("")==False:
             masignacion()
         else:
             datos["asig"].pop(cc)
             sistema.datos=datos
             guardar(2)
+
 def masignacion():
     y=True
     while y:
@@ -244,16 +249,16 @@ def masignacion():
             2- Editar Grupo
             3- Eliminar asignacion
             4- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         system("clear")
         match(opc):
-            case(1):
+            case("1"):
                 asignar()
-            case(2):
+            case("2"):
                 Editgrupo()
-            case(3):
+            case("3"):
                 delAsig()
-            case(4):
+            case("4"):
                 system("clear")
                 y=False
             case (_):

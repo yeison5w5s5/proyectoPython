@@ -3,19 +3,25 @@ from os import system
 import readline
 import json
 from .data import datos
-def continuar():
+def continuar(a):
     X=True
     while True:
+        if a==1:
+            print("\t\tCodigo no identificado")
+        elif a==2:
+            print("\t\tNumero no identificado")
+        else: 
+            pass
         print("""
             ¿Quieres continuar?
                 1=Si
                 2=No""")
-        opc=int(input(""))
+        opc=input("")
         match(opc):
-            case(1):
+            case("1"):
                 x=True
                 break
-            case(2):
+            case("2"):
                 x=False
                 break
             case(_):

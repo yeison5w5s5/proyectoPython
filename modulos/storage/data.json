@@ -6,7 +6,7 @@
         "4": "18:00-22:00"
     },
     "salas": {
-        "cont": 4,
+        "cont": 10,
         "S01": {
             "cod_sala": "S01",
             "nom_sala": "6",
@@ -15,7 +15,7 @@
                 "1",
                 "1",
                 "1",
-                "0"
+                "1"
             ]
         },
         "S02": {
@@ -25,8 +25,8 @@
             "cod_horario": [
                 "1",
                 "1",
-                "0",
-                "0"
+                "1",
+                "1"
             ]
         },
         "S03": {
@@ -39,15 +39,27 @@
                 "0",
                 "0"
             ]
+        },
+        "S04": {
+            "cod_sala": "S04",
+            "nom_sala": "artemis",
+            "capacidad": "45",
+            "cod_horaio": [
+                "0",
+                "0",
+                "0",
+                "0"
+            ]
         }
     },
     "rutas": {
-        "cont": 5,
+        "cont": 7,
         "R01": {
             "cod_ruta": "R01",
             "nom_ruta": "Java Script",
             "modulos": [
-                "M03"
+                "M03",
+                "M01"
             ]
         },
         "R02": {
@@ -291,6 +303,16 @@
             "Estado": "inscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "RICARDO CASTILLO"
+        },
+        "123456": {
+            "cc_camper": "123456",
+            "nom_camper": "YEILOZ",
+            "apell_camper": "BLAZ",
+            "edad_camper": 34,
+            "Dirr_camper": "CAR45",
+            "Estado": "preinscrito",
+            "cc_acudi": "papiblaz",
+            "nom_acudiente": "PAPIBLAZX2"
         }
     },
     "trainer": {
@@ -403,6 +425,17 @@
                 "1"
             ],
             "Estado": "contratado"
+        },
+        "1234": {
+            "cc_trainer": "1234",
+            "nom_trainer": "PEDRO",
+            "cod_horario": [
+                "1",
+                "1",
+                "0",
+                "1"
+            ],
+            "Estado": "pendiente"
         }
     },
     "asig": {
@@ -435,6 +468,18 @@
             "inicio": "01-02-2025",
             "fin": "1-10-2025",
             "cod_horario": "2"
+        },
+        "M2": {
+            "cod_asig": "M2",
+            "cod_ruta": "R04",
+            "cod_sala": "S02",
+            "cc_trainer": "4",
+            "campers": [
+                "1234"
+            ],
+            "inicio": "45",
+            "fin": "67",
+            "cod_horario": "3"
         }
     }
 }

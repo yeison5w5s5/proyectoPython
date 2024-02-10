@@ -15,23 +15,23 @@ def mcoordi():
             4- Camper
             5- Salas
             6- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         system("clear")
         match(opc):
-            case(1):
+            case "1":
                 ruta.datos=traejson()
                 ruta.menurutas()
-            case(2):
+            case "2":
                 asignacion.datos=traejson()
                 asignacion.masignacion()
-            case(3):
+            case "3":
                 pass
-            case(4):
+            case "4":
                 pass
-            case(5):
+            case "5":
                 salas.datos=traejson()
                 salas.msalas()
-            case(6):
+            case "6":
                 x=False
             case (_):
                 print("otra vez")

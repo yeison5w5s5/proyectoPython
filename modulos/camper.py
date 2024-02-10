@@ -25,7 +25,7 @@ def guardarcam():
     else:
         datos["camper"][cc]=info(cc)
         sistema.datos=datos
-        guardar()
+        guardar(1)
     return "Camper"    
 def buscar():
     datos=traejson()
@@ -45,8 +45,7 @@ def buscar():
             Nombre: {camper["nom_acudiente"]}
             Estado: {camper["Estado"]}""")
     else:
-        print("Numero de identificacion no reconocido")
-        if continuar()==True:
+        if continuar("")==True:
             buscar() 
 
 '''def editar():
@@ -111,13 +110,13 @@ def mcamper():
             1- Registro camper
             2- ver mis Datos
             5- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         match(opc):
-            case(1):
+            case("1"):
                 guardarcam()
-            case(2):
+            case("2"):
                 buscar()
-            case(5):
+            case("5"):
                 system("clear")
                 Ban=False
             case (_):

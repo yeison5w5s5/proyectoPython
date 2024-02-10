@@ -1,8 +1,26 @@
 from os import system
 from .data import datos
 from .sistema import continuar, guardar
-from . import sistema
+from . import sistema, asignacion
 import json
+
+def login():
+    grupos=[]
+    cTrainer= input("ingresa tu numero de identificacion: ")
+    if cTrainer not in datos["trainer"]:
+        login() if continuar(2)==True else mtrainer()
+    else:
+        for i in datos["asig"]:
+            if datos["asig"][i]["cc_trainer"]==cTrainer:
+                asignacion.datos=datos
+                print(asignacion.printgrupo(i))
+                grupos.append(i)
+        if grupos==[]:
+            print("aun no tienes grupos asignados")
+        else:
+            cGrupo= str.upper(input("ingresa el codigo del grupo que quieres ver: "))
+            if cGrupo not in grupos:
+                print("codigo no identificado")
 
 def info():
     cc=input("ingresa tu numero de  ID: ")
@@ -19,7 +37,8 @@ def info():
         data={
             "cc_trainer":cc,
             "nom_trainer":nombre,
-            "cod_horaio":[input(f'\n{i}- {datos["horarios"][i]}: ') for i in datos["horarios"]],
+            "cod_horario":[input(f'\n{i}- {datos["horarios"][i]}: ') for i in datos["horarios"]],
+            "Estado":"pendiente"
         }
         datos["trainer"][cc]=data
         sistema.datos=datos
@@ -32,22 +51,22 @@ def mtrainer():
         print("""
         \033[1;94mMenu Trainer\033[0m
             1- Registro
-            2- 
+            2- Ingreso
             3- 
             4- Eliminar Camper
             5- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         system("clear")
         match(opc):
-            case(1):
+            case("1"):
                 info()
-            case(2):
+            case("2"):
+                login()
+            case("3"):
                 pass
-            case(3):
+            case("4"):
                 pass
-            case(4):
-                pass
-            case(5):
+            case("5"):
                 system("clear")
                 y=False
             case (_):

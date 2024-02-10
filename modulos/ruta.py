@@ -28,7 +28,9 @@ def tbRutas():
 def asigMod(codigo):
     if codigo=="":
         codigo=str.upper(input("ingrese el codigo de la ruta: "))
-    if codigo in datos["rutas"]:
+    if codigo not in datos["rutas"]:
+        editRuta(codigo) if continuar(1)==False else asigMod(codigo)
+    else:
         if datos["rutas"][codigo]["modulos"]!=[]:
             print("\t-------Sus modulos---------")
         tbMod(datos["rutas"][codigo])
@@ -44,13 +46,12 @@ def asigMod(codigo):
                 else:
                     print ("Ya tienes este modulo")
             else:
-                print("Codigo no identificado")
-            if continuar()==False:
+                if continuar(1)==False:
+                    break
+            if continuar("")==False:
                 sistema.datos=datos
                 guardar(1)
-                break
-    else:
-        print("Codigo no identificado")
+                editRuta(codigo)
 
 def delModR(codigo):
     if datos["rutas"][codigo]["modulos"]!=[]:
@@ -61,12 +62,12 @@ def delModR(codigo):
         if cod in datos["rutas"][codigo]["modulos"]:
             datos["rutas"][codigo]["modulos"].remove(cod)
         else:
-            print("No tienes este modulo")
-        if continuar()==False:
+            if continuar(1)==False:
+                break
+        if continuar("")==False:
             sistema.datos=datos
             guardar(2)
-            break
-
+            editRuta(codigo)
 def modulos():
     x=True
     while x:
@@ -78,7 +79,7 @@ def modulos():
         }
         datos["modulos"][cod]=modulo
         datos["modulos"]["cont"]+=1
-        if continuar()==False:
+        if continuar("")==False:
             sistema.datos=datos
             guardar(1)
             menurutas()
@@ -95,54 +96,52 @@ def rutas(cod):
     datos["rutas"]["cont"]+=1
     sistema.datos=datos
     guardar(1)
-    return "Ruta Guardada"
+    menurutas() if cod=="" else editRuta()
 
-def editRuta():
+def editRuta(cc):
     datos=traejson()
     while True:
-        tbRutas()
-        codigo=str.upper(input("Ingresa el codigo de la ruta a editar: "))
-        if codigo in datos["rutas"]:
-            system("clear")
-            tbRuta(codigo)
-            if continuar==False:
-                break
-            print("""
-                \033[1;94mMenu de edicion de ruta\033[0m
-                1- Editar Ruta
-                2- Agregar modulos
-                3- Eliminar modulos
-                4- Salir""")
-            opc=int(input())
-            match(opc):
-                case(1):
-                    rutas(codigo)
-                case(2):
-                    asigMod(codigo)
-                case(3):
-                    delModR(codigo)
-                case(4):
+        if cc=="":
+            tbRutas()
+            codigo=str.upper(input("Ingresa el codigo de la ruta a editar: "))
+            if codigo in datos["rutas"]:
+                system("clear")
+                tbRuta(codigo)
+            else:
+                if continuar(1)==False:
                     menurutas()
-                case (_):
-                    print("opcion no identificada")
-
         else:
-            print("No se encontro ruta con este codigo")
-            if continuar()==False:
-                break
-
+            codigo=cc
+            tbRuta(codigo)
+        print("""
+            \033[1;94mMenu de edicion de ruta\033[0m
+            1- Editar Ruta
+            2- Agregar modulos
+            3- Eliminar modulos
+            4- Salir""")
+        opc=input()
+        match(opc):
+            case("1"):
+                rutas(codigo)
+            case("2"):
+                asigMod(codigo)
+            case("3"):
+                delModR(codigo)
+            case("4"):
+                menurutas()
+            case (_):
+                print("opcion no identificada")
 def eliminarR():
     tbRutas()
-    cc=input("ingresa el cod de l aruta que quieres eliminar: ")
+    cc=str.upper(input("ingresa el cod de la ruta que quieres eliminar: "))
     if cc in datos["rutas"]:
         tbRuta(cc)
         print("¿Esta es la ruta que quieres eliminar?")
-        datos["rutas"].pop(cc) if continuar()==True else menurutas()
+        datos["rutas"].pop(cc) if continuar("")==True else menurutas()
         sistema.datos=datos
         guardar(2)
     else:
-        print("Codigo no identificado:")
-        return eliminarR() if continuar()==True else "bye"
+        return eliminarR() if continuar(1)==True else menurutas()
 def menurutas():
     y=True
     while y:
@@ -152,16 +151,16 @@ def menurutas():
             2- Editar rutas
             3- Eliminar ruta
             4- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         system("clear")
         match(opc):
-            case(1):
+            case("1"):
                 rutas("")
-            case(2):
-                editRuta()
-            case(3):
+            case("2"):
+                editRuta("")
+            case("3"):
                 eliminarR()
-            case(4):
+            case("4"):
                 system("clear")
                 y=False
             case (_):

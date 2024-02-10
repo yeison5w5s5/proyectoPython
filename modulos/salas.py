@@ -5,7 +5,7 @@ import json
 from .data import datos
 
 def crear(a):
-    b,c,cod= ["","",("S0"+str((datos["salas"]["cont"])))] if a=="" else [a["nom_sala"],a["capacida"],a["cod_sala"]]
+    b,c,cod= ["","",("S0"+str((datos["salas"]["cont"])))] if a=="" else [a["nom_sala"],a["capacidad"],a["cod_sala"]]
     data={
         "cod_sala":cod,
         "nom_sala":preingreso("ingrese el nombre de la sala: ",b),
@@ -18,7 +18,7 @@ def crear(a):
             ]
     }
     datos["salas"][cod]=data
-    datos["salas"]["cont"]+=1 if a=="" else "nada" 
+    datos["salas"]["cont"]+=1 if a=="" else datos["salas"]["cont"] 
     sistema.datos=datos
     guardar(1)
 
@@ -31,11 +31,11 @@ def editar(a):
     _________________________
     codigo- {sala["cod_sala"]}
     nombre- {sala["nom_sala"]}
-    capacidad- {sala["capacida"]}
+    capacidad- {sala["capacidad"]}
     -------------------------
        Esta es tu sala?
     """)
-        if continuar()==True:
+        if continuar("")==True:
             if a==1:
                 crear(sala) 
             else:
@@ -45,8 +45,7 @@ def editar(a):
         else:
             msalas()
     else:
-        print("codigo no identificado")
-        editar() if continuar()==True else msalas()
+        editar() if continuar(1)==True else msalas()
 
 
 
@@ -61,18 +60,18 @@ def msalas():
             3- Eliminar
             4- Listar
             5- Salir""")
-        opc=int(input("\t"))
+        opc=input("\t")
         system("clear")
         match(opc):
-            case(1):
+            case("1"):
                 crear("")
-            case(2):
+            case("2"):
                 editar(1)
-            case(3):
+            case("3"):
                 editar(2)
-            case(4):
+            case("4"):
                 listar("{:<15}",traejson()["salas"])
-            case(5):
+            case("5"):
                 x=False
             case (_):
                 print("otra vez")
