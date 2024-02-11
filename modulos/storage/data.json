@@ -225,7 +225,7 @@
             "nom_acudiente": "ANDREA LOPEZ"
         },
         "346": {
-            "cc_camper": 346,
+            "cc_camper": "346",
             "nom_camper": "VERONICA",
             "apell_camper": "MOLINA",
             "edad_camper": 14,
@@ -235,7 +235,7 @@
             "nom_acudiente": "PEDRO MOLINA"
         },
         "8910": {
-            "cc_camper": 8910,
+            "cc_camper": "8910",
             "nom_camper": "FABIOLA",
             "apell_camper": "RAMIREZ",
             "edad_camper": 16,
@@ -245,7 +245,7 @@
             "nom_acudiente": "RICARDO RAMIREZ"
         },
         "10044": {
-            "cc_camper": 10044,
+            "cc_camper": "10044",
             "nom_camper": "RICARDO",
             "apell_camper": "PEREZ",
             "edad_camper": 15,
@@ -255,7 +255,7 @@
             "nom_acudiente": "CARLOS PEREZ"
         },
         "2383": {
-            "cc_camper": 2383,
+            "cc_camper": "2383",
             "nom_camper": "LAURA",
             "apell_camper": "LOPEZ",
             "edad_camper": 18,
@@ -265,17 +265,17 @@
             "nom_acudiente": "MARIA LOPEZ"
         },
         "125": {
-            "cc_camper": 125,
+            "cc_camper": "125",
             "nom_camper": "PEDRO",
             "apell_camper": "ALVAREZ",
             "edad_camper": 17,
             "Dirr_camper": "CARRERA 15",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 5432,
             "nom_acudiente": "JUAN ALVAREZ"
         },
         "1236": {
-            "cc_camper": 1236,
+            "cc_camper": "1236",
             "nom_camper": "ANA",
             "apell_camper": "GARCIA",
             "edad_camper": 16,
@@ -285,7 +285,7 @@
             "nom_acudiente": "ANDRES GARCIA"
         },
         "347": {
-            "cc_camper": 347,
+            "cc_camper": "347",
             "nom_camper": "CARLOS",
             "apell_camper": "ROJAS",
             "edad_camper": 14,
@@ -295,7 +295,7 @@
             "nom_acudiente": "PEDRO ROJAS"
         },
         "8911": {
-            "cc_camper": 8911,
+            "cc_camper": "8911",
             "nom_camper": "ANDREA",
             "apell_camper": "CASTILLO",
             "edad_camper": 16,
@@ -480,6 +480,16 @@
             "inicio": "45",
             "fin": "67",
             "cod_horario": "3"
+        }
+    },
+    "pruebas": {
+        "primera": {
+            "125": {
+                "cc_camper": "125",
+                "logica": 50,
+                "tecnico": 50,
+                "promedio": 75.0
+            }
         }
     }
 }

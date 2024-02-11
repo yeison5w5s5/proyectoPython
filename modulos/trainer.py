@@ -18,9 +18,12 @@ def login():
         if grupos==[]:
             print("aun no tienes grupos asignados")
         else:
-            cGrupo= str.upper(input("ingresa el codigo del grupo que quieres ver: "))
-            if cGrupo not in grupos:
-                print("codigo no identificado")
+            while True:
+                cGrupo= str.upper(input("ingresa el codigo del grupo que quieres ver: "))
+                if cGrupo not in grupos:
+                    login() if continuar(1)==False else print("otra vez")
+                else:
+                    """el trainer ingresa la cada una de las notas del camper"""
 
 def info():
     cc=input("ingresa tu numero de  ID: ")
