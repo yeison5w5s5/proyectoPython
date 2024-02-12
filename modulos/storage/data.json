@@ -53,38 +53,43 @@
         }
     },
     "rutas": {
-        "cont": 7,
+        "cont": 4,
         "R01": {
             "cod_ruta": "R01",
-            "nom_ruta": "Java Script",
+            "nom_ruta": " Ruta NodeJS",
             "modulos": [
-                "M03",
-                "M01"
+                "M01",
+                "M02",
+                "M04",
+                "M07",
+                "M011"
             ]
         },
         "R02": {
             "cod_ruta": "R02",
-            "nom_ruta": "Java",
+            "nom_ruta": "Ruta Java",
             "modulos": [
                 "M01",
-                "M02"
+                "M02",
+                "M03",
+                "M06",
+                "M010"
             ]
         },
         "R03": {
             "cod_ruta": "R03",
-            "nom_ruta": "C#",
-            "modulos": []
-        },
-        "R04": {
-            "cod_ruta": "R04",
-            "nom_ruta": " Chet",
+            "nom_ruta": " Ruta NetCore",
             "modulos": [
-                "M01"
+                "M01",
+                "M02",
+                "M05",
+                "M07",
+                "M09"
             ]
         }
     },
     "modulos": {
-        "cont": 3,
+        "cont": 12,
         "M01": {
             "cod_mod": "M01",
             "nom_mod": "Fundamentos de Programacion",
@@ -104,12 +109,70 @@
             ]
         },
         "M03": {
-            "cod_mod": "M07",
-            "nom_mod": "Bases de Datos",
+            "cod_mod": "M03",
+            "nom_mod": "Programaci\u00f3n formal",
+            "temario": [
+                "Java"
+            ]
+        },
+        "M04": {
+            "cod_mod": "M04",
+            "nom_mod": "Programaci\u00f3n formal",
+            "temario": [
+                "JavaScript"
+            ]
+        },
+        "M05": {
+            "cod_mod": "M05",
+            "nom_mod": "Programaci\u00f3n formal",
+            "temario": [
+                "C#"
+            ]
+        },
+        "M06": {
+            "cod_mod": "M06",
+            "nom_mod": "Bases de datos",
             "temario": [
                 "Mysql",
+                "MongoDb"
+            ]
+        },
+        "M07": {
+            "cod_mod": "M07",
+            "nom_mod": "Bases de datos",
+            "temario": [
                 "MongoDb",
                 "Postgresql"
+            ]
+        },
+        "M08": {
+            "cod_mod": "M08",
+            "nom_mod": "Bases de datos",
+            "temario": [
+                "Postgresql",
+                "Mysql"
+            ]
+        },
+        "M09": {
+            "cod_mod": "M09",
+            "nom_mod": "Backend",
+            "temario": [
+                "NetCore"
+            ]
+        },
+        "M010": {
+            "cod_mod": "M010",
+            "nom_mod": "Backend",
+            "temario": [
+                "Sprint Boot"
+            ]
+        },
+        "M011": {
+            "cod_mod": "M011",
+            "nom_mod": "Backend",
+            "temario": [
+                "NodeJS",
+                "Express"
             ]
         }
     },
@@ -120,7 +183,7 @@
             "apell_camper": "WILCHEZ",
             "edad_camper": 21,
             "Dirr_camper": "CARR17 W",
-            "Estado": "Enriesgo",
+            "Estado": "preinscrito",
             "cc_acudi": 85480,
             "nom_acudiente": "OMAR WILCHEZ"
         },
@@ -140,7 +203,7 @@
             "apell_camper": "DIA",
             "edad_camper": 20,
             "Dirr_camper": "CAR12A",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 321,
             "nom_acudiente": "LILIAN"
         },
@@ -160,7 +223,7 @@
             "apell_camper": "ERE",
             "edad_camper": 12,
             "Dirr_camper": "ERRE",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 34,
             "nom_acudiente": "FGFGF"
         },
@@ -200,7 +263,7 @@
             "apell_camper": "SILVA",
             "edad_camper": 18,
             "Dirr_camper": "CALLE 22",
-            "Estado": "aprobado",
+            "Estado": "preinscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "MARIA SILVA"
         },
@@ -210,7 +273,7 @@
             "apell_camper": "MARTINEZ",
             "edad_camper": 17,
             "Dirr_camper": "CARRERA 15",
-            "Estado": "aprobado",
+            "Estado": "preinscrito",
             "cc_acudi": 5432,
             "nom_acudiente": "JUAN MARTINEZ"
         },
@@ -230,7 +293,7 @@
             "apell_camper": "MOLINA",
             "edad_camper": 14,
             "Dirr_camper": "AVENIDA 5",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 8765,
             "nom_acudiente": "PEDRO MOLINA"
         },
@@ -240,7 +303,7 @@
             "apell_camper": "RAMIREZ",
             "edad_camper": 16,
             "Dirr_camper": "CALLE 10",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "RICARDO RAMIREZ"
         },
@@ -270,7 +333,7 @@
             "apell_camper": "ALVAREZ",
             "edad_camper": 17,
             "Dirr_camper": "CARRERA 15",
-            "Estado": "Reprobado",
+            "Estado": "preinscrito",
             "cc_acudi": 5432,
             "nom_acudiente": "JUAN ALVAREZ"
         },
@@ -290,7 +353,7 @@
             "apell_camper": "ROJAS",
             "edad_camper": 14,
             "Dirr_camper": "AVENIDA 5",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 8765,
             "nom_acudiente": "PEDRO ROJAS"
         },
@@ -300,7 +363,7 @@
             "apell_camper": "CASTILLO",
             "edad_camper": 16,
             "Dirr_camper": "CALLE 10",
-            "Estado": "inscrito",
+            "Estado": "preinscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "RICARDO CASTILLO"
         },
@@ -313,6 +376,16 @@
             "Estado": "preinscrito",
             "cc_acudi": "papiblaz",
             "nom_acudiente": "PAPIBLAZX2"
+        },
+        "456789": {
+            "cc_camper": 456789,
+            "nom_camper": "VANESSA ANGULO",
+            "apell_camper": "GOMEZ",
+            "edad_camper": 23,
+            "Dirr_camper": "CAR45",
+            "Estado": "preinscrito",
+            "cc_acudi": "567",
+            "nom_acudiente": "LILIANA GOMEZ"
         }
     },
     "trainer": {
@@ -436,6 +509,17 @@
                 "1"
             ],
             "Estado": "pendiente"
+        },
+        "34567": {
+            "cc_trainer": 34567,
+            "nom_trainer": "LUIS",
+            "cod_horario": [
+                "1",
+                "1",
+                "0",
+                "0"
+            ],
+            "Estado": "pendiente"
         }
     },
     "asig": {
@@ -486,12 +570,12 @@
         }
     },
     "pruebas": {
-        "125": {
-            "cc_camper": "125",
-            "practica": 70,
-            "teorica": 70,
-            "promedio": 70.0,
-            "fecha": "02-03-2024"
+        "123": {
+            "cc_camper": "123",
+            "practica": 90.0,
+            "teorica": 89.0,
+            "promedio": "89.5",
+            "Fecha:": "2024-02-11"
         }
     },
     "notas": {

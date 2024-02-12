@@ -2,7 +2,7 @@ from os import system
 import json
 import readline
 from . import sistema
-from .sistema import continuar, guardar, traejson, preingreso
+from .sistema import continuar, guardar, traejson, preingreso, enteros
 from .data import datos
 
 def tbMod1(b):
@@ -71,11 +71,11 @@ def delModR(codigo):
 def modulos():
     x=True
     while x:
-        cod="M0"+str(datos["rutas"]["cont"][1])
+        cod="M0"+str(datos["modulos"]["cont"])
         modulo={
             "cod_mod":cod,
             "nom_mod":str(input("Ingresa el nombre del modulo: ")),
-            "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(int(input("Defina la cantidad de datos: ")))]
+            "temario":[str(input(f"ingrese el temario {i+1}: "))for i in range(enteros("Defina la cantidad de datos: "))]
         }
         datos["modulos"][cod]=modulo
         datos["modulos"]["cont"]+=1
@@ -149,8 +149,9 @@ def menurutas():
         \033[1;94mMenu Rutas\033[0m
             1- Crear ruta
             2- Editar rutas
-            3- Eliminar ruta
-            4- Salir""")
+            3- Crear modulos
+            4- Eliminar ruta
+            0- Salir""")
         opc=input("\t")
         system("clear")
         match(opc):
@@ -159,8 +160,10 @@ def menurutas():
             case("2"):
                 editRuta("")
             case("3"):
-                eliminarR()
+                modulos()
             case("4"):
+                eliminarR()
+            case("0"):
                 system("python3 main.py")
             case (_):
                 print("otra vez")

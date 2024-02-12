@@ -1,6 +1,6 @@
 from os import system
 from .data import datos
-from .sistema import continuar, guardar, numeros, listar
+from .sistema import continuar, guardar, numeros, listar, enteros
 from . import sistema, asignacion
 import json
 
@@ -127,7 +127,7 @@ identificacion:{camper} nombre: {datos["camper"][camper]["nom_camper"]} {datos["
             notasCampers(cGrupo,cTrainer)
 
 def info():
-    cc=numeros("ingresa tu numero de  ID: ")
+    cc=enteros("ingresa tu numero de  ID: ")
     if str(cc) in datos["trainer"]:
         print("Este numero ya existe")
         info()

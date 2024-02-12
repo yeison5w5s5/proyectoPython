@@ -68,3 +68,10 @@ def numeros(mensaje):
             return float(input(mensaje))
         except ValueError:
             print("Por favor solo ingresa numeros")
+
+def enteros(mensaje):
+    while True:
+        try:
+            return int(input(mensaje))
+        except ValueError:
+            print("Por favor solo ingresa numeros")

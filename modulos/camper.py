@@ -1,7 +1,7 @@
 from os import system
 import json
 from .data import datos
-from .sistema import continuar, guardar, traejson, numeros
+from .sistema import continuar, guardar, traejson, numeros, enteros
 from . import sistema
 from datetime import date
 def prueba(codigo):
@@ -9,21 +9,24 @@ def prueba(codigo):
     programacion = numeros("ingrese su puntaje teorico: ")
     
     promedio=(logica+programacion)/2
+    fecha= date.today()
+    fecha=str(fecha)
     print(f"""
         Puntaje de lógica: {logica}
         Puntaje de programación:   {programacion}
         promedio: {promedio}""")
-    datos["pruebas"][codigo]={"cc_camper":codigo,
-                                         "practica":logica,
-                                         "teorica":programacion,
-                                         "promedio":"{0:.1f}".format(promedio),
-                                         "Fecha:": date.today()}
+    datacamp={"cc_camper":codigo,
+        "practica":logica,
+        "teorica":programacion,
+        "promedio":("{0:.1f}".format(promedio)),
+        "Fecha:": fecha}
     if promedio>60:
         datos["camper"][codigo]["Estado"]="inscrito"
         print("Felicidades, haz aprobado")
     else:
-        datos["camper"][codigo]["Estado"]="Reprobado"
+        datos["camper"][codigo]["Estado"]="reprobado"
         print("Intentalo el otro año xD")
+    datos["pruebas"][codigo]=datacamp
     sistema.datos=datos
     guardar(1)
     mcamper()
@@ -42,7 +45,7 @@ def info(cc):
     return data
 
 def guardarcam():
-    cc=numeros("Ingrese numero de identificacion: ")
+    cc=enteros("Ingrese numero de identificacion: ")
     if str(cc) in datos["camper"]:
         print("Este numero ya existe")
         guardarcam()
@@ -50,7 +53,7 @@ def guardarcam():
         datos["camper"][str(cc)]=info(cc)
         sistema.datos=datos
         guardar(1)
-    return "Camper"    
+    return "Camper"
 
 def buscar():
     datos=traejson()
@@ -139,14 +142,14 @@ def mcamper():
         Menu Camper
             1- Registro camper
             2- ver mis Datos
-            5- Salir""")
+            0- Salir""")
         opc=input("\t")
         match(opc):
             case("1"):
                 guardarcam()
             case("2"):
                 buscar()
-            case("5"):
+            case("0"):
                 system("python3 main.py")
             case (_):
                 print("otra vez")
