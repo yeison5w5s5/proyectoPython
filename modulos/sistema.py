@@ -54,10 +54,17 @@ def preingreso(mensaje, valor_predeterminado):
 def listar(a,x):
     for i in dict(list(x.items())[1:]):
         for v in x[i]:
-            print( "\033[45m",a.format(v),"\033[0","\033[1;36m║\033[0m" ,end="")
+            print( "\033[44m",a.format(v),"\033[0","\033[1;94m║\033[0m" ,end="")
         print(flush=0)
         break
     for i in dict(list(x.items())[1:]):
         for v in x[i]:
-            print("",a.format(str(x[i][v]),),"\033[1;36m║\033[0m",end="")
+            print("",a.format(str(x[i][v]),),"\033[1;94m║\033[0m",end="")
         print(flush=0)
+
+def numeros(mensaje):
+    while True:
+        try:
+            return float(input(mensaje))
+        except ValueError:
+            print("Por favor solo ingresa numeros")

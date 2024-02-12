@@ -44,9 +44,9 @@ def validSala(horario):
             datos["salas"][cSala]["cod_horario"][int(horario)-1]="1"
             return cSala
 #valida camper y devuelve lista
-def validCamper():
+def validCamper(cSala,previo):
     mal=0
-    lista={"0":"salto"}
+    lista= {"0":"salto"} if previo==[] else previo
     listacamper=[]
     for i in datos["camper"]:
         if datos["camper"][i]["Estado"]=="preinscrito":
@@ -60,7 +60,13 @@ def validCamper():
     while True:
         cCamper=input("dijita la identificacion del camper: ")
         if cCamper in lista:
-            listacamper.append(cCamper)
+            if (listacamper)<int(datos["Salas"][cSala]["capacidad"]):
+                listacamper.append(cCamper)
+            else:
+                print("""
+        La sala esta llena,ya no 
+        puedes agregar mas campers""")
+                return listacamper
             if continuar("")==False:
                 return listacamper
         else:
@@ -89,6 +95,7 @@ def guardarGrupo(cc,codRuta,horario,cTrainer,cSala,listacamper,dateini,datefin):
         "cod_ruta": codRuta,
         "cod_sala": cSala,
         "cc_trainer": cTrainer,
+        "mod_actual": "1",
         "campers": listacamper,
         "inicio": dateini,
         "fin": datefin,
@@ -105,6 +112,7 @@ def printgrupo(cc):
     ruta: {grupo["cod_ruta"]} - {datos["rutas"][grupo["cod_ruta"]]["nom_ruta"]}
     sala: {grupo["cod_sala"]} - {datos["salas"][grupo["cod_sala"]]["nom_sala"]}
     trainer: {grupo["cc_trainer"]} - {datos["trainer"][grupo["cc_trainer"]]["nom_trainer"]}
+    modulo actual: {grupo["mod_actual"]}
     campers: {len(grupo["campers"])}
     fecha: inicio > {grupo["inicio"]} - fin > {grupo["fin"]}
     horario: {datos["horarios"][grupo["cod_horario"]]}
@@ -135,6 +143,7 @@ def campergrup(cc):
     listar("{:<15}",lista)
 #menu edicon de campers en el grupo
 def editcamper(cc):
+    grupo=datos["asig"][cc]
     print("""
         --- Edicion de campers ---
           1. Agregar Campers    
@@ -148,7 +157,7 @@ def editcamper(cc):
                 print("-------los campers en grupo---------")
                 campergrup(cc)
                 print("-------los campers que puedes agregar---------")
-                lista=validCamper()
+                lista=validCamper(grupo["cod_horario"],grupo["campers"])
                 for i in lista:
                     datos["asig"][cc]["campers"].append(i)
                 sistema.datos=datos
@@ -217,7 +226,7 @@ def asignar():
 #eleccion de rutas de Salas
     cSala=validSala(horario)
 #eleccion de rutas de campers
-    listacamper=validCamper()
+    listacamper=validCamper(cSala,[])
 #fecha inicio y fin
     dateini=input("Ingresa la fecha de inicion es el siguiente formato: (dd-mm-aaaa): ")
     datefin=input("Ingresa la fecha de finalizacion es el siguiente formato: (dd-mm-aaaa): ")      
@@ -259,7 +268,6 @@ def masignacion():
             case("3"):
                 delAsig()
             case("4"):
-                system("clear")
-                y=False
+                system("python3 main.py")
             case (_):
                 print("otra vez")

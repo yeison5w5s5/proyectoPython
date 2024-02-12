@@ -161,8 +161,7 @@ def menurutas():
             case("3"):
                 eliminarR()
             case("4"):
-                system("clear")
-                y=False
+                system("python3 main.py")
             case (_):
                 print("otra vez")
 

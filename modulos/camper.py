@@ -1,9 +1,9 @@
 from os import system
 import json
 from .data import datos
-from .sistema import continuar, guardar, traejson
+from .sistema import continuar, guardar, traejson, numeros
 from . import sistema
-
+from datetime import date
 def prueba(codigo):
     logica = 0
     programacion = 0
@@ -114,10 +114,11 @@ def prueba(codigo):
         Puntaje de lógica: {logica}
         Puntaje de programación:   {programacion}
         promedio: {promedio}""")
-    datos["pruebas"]["primera"][codigo]={"cc_camper":codigo,
+    datos["pruebas"][codigo]={"cc_camper":codigo,
                                          "logica":logica,
                                          "tecnico":programacion,
-                                         "promedio":promedio}
+                                         "promedio":promedio,
+                                         "Fecha:": date.today()}
     if promedio>60:
         datos["camper"][codigo]["Estado"]="inscrito"
         print("Felicidades, haz aprobado")
@@ -141,12 +142,12 @@ def info(cc):
     return data
 
 def guardarcam():
-    cc=input("Ingrese numero de identificacion: ")
+    cc=numeros("Ingrese numero de identificacion: ")
     if str(cc) in datos["camper"]:
         print("Este numero ya existe")
         guardarcam()
     else:
-        datos["camper"][cc]=info(cc)
+        datos["camper"][str(cc)]=info(cc)
         sistema.datos=datos
         guardar(1)
     return "Camper"    
@@ -246,7 +247,6 @@ def mcamper():
             case("2"):
                 buscar()
             case("5"):
-                system("clear")
-                Ban=False
+                system("python3 main.py")
             case (_):
                 print("otra vez")

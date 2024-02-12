@@ -72,6 +72,6 @@ def msalas():
             case("4"):
                 listar("{:<15}",traejson()["salas"])
             case("5"):
-                x=False
+                system("python3 main.py")
             case (_):
                 print("otra vez")

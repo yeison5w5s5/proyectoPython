@@ -32,7 +32,7 @@ def mcoordi():
                 salas.datos=traejson()
                 salas.msalas()
             case "6":
-                x=False
+                system("python3 main.py")
             case (_):
                 print("otra vez")
 
