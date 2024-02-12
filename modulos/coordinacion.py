@@ -2,7 +2,7 @@ from os import system
 import json
 from .sistema import continuar, traejson
 from .data import datos
-from . import salas, ruta ,asignacion
+from . import salas, ruta ,asignacion, informes
 
 def mcoordi():
     x=True
@@ -14,7 +14,8 @@ def mcoordi():
             3- Trainer
             4- Camper
             5- Salas
-            6- Salir""")
+            6- informes
+            0- Salir""")
         opc=input("\t")
         system("clear")
         match(opc):
@@ -32,6 +33,9 @@ def mcoordi():
                 salas.datos=traejson()
                 salas.msalas()
             case "6":
+                informes.datos=traejson()
+                informes.minformes()
+            case "0":
                 system("python3 main.py")
             case (_):
                 print("otra vez")

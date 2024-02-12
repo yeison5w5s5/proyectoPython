@@ -488,9 +488,9 @@
     "pruebas": {
         "125": {
             "cc_camper": "125",
-            "logica": 50,
-            "tecnico": 50,
-            "promedio": 75.0,
+            "practica": 70,
+            "teorica": 70,
+            "promedio": 70.0,
             "fecha": "02-03-2024"
         }
     },

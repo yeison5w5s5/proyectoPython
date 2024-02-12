@@ -49,7 +49,7 @@ def validCamper(cSala,previo):
     lista= {"0":"salto"} if previo==[] else previo
     listacamper=[]
     for i in datos["camper"]:
-        if datos["camper"][i]["Estado"]=="preinscrito":
+        if datos["camper"][i]["Estado"]=="inscrito":
             for i1 in datos["asig"]:
                 if i in datos["asig"][i1]["campers"]:
                     mal+=1
