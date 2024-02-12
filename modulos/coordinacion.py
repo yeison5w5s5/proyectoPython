@@ -2,7 +2,7 @@ from os import system
 import json
 from .sistema import continuar, traejson
 from .data import datos
-from . import salas, ruta ,asignacion, informes
+from . import salas, ruta ,asignacion, informes, trainer
 
 def mcoordi():
     x=True
@@ -26,9 +26,8 @@ def mcoordi():
                 asignacion.datos=traejson()
                 asignacion.masignacion()
             case "3":
-                pass
-            case "4":
-                pass
+                trainer.datos=traejson()
+                trainer.estadoTrai()
             case "5":
                 salas.datos=traejson()
                 salas.msalas()

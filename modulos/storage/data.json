@@ -13,9 +13,9 @@
             "capacidad": "34",
             "cod_horario": [
                 "1",
-                "1",
-                "1",
-                "1"
+                "0",
+                "0",
+                "0"
             ]
         },
         "S02": {
@@ -23,10 +23,10 @@
             "nom_sala": "Kepler",
             "capacidad": "34",
             "cod_horario": [
-                "1",
-                "1",
-                "1",
-                "1"
+                "0",
+                "0",
+                "0",
+                "0"
             ]
         },
         "S03": {
@@ -35,7 +35,7 @@
             "capacidad": "45",
             "cod_horario": [
                 "0",
-                "1",
+                "0",
                 "0",
                 "0"
             ]
@@ -44,7 +44,7 @@
             "cod_sala": "S04",
             "nom_sala": "artemis",
             "capacidad": "45",
-            "cod_horaio": [
+            "cod_horario": [
                 "0",
                 "0",
                 "0",
@@ -183,7 +183,7 @@
             "apell_camper": "WILCHEZ",
             "edad_camper": 21,
             "Dirr_camper": "CARR17 W",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 85480,
             "nom_acudiente": "OMAR WILCHEZ"
         },
@@ -193,7 +193,7 @@
             "apell_camper": "SANTOS",
             "edad_camper": 21,
             "Dirr_camper": "CARR18",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 854,
             "nom_acudiente": "OMAR WILCHEZ"
         },
@@ -213,7 +213,7 @@
             "apell_camper": "GOMEZ",
             "edad_camper": 20,
             "Dirr_camper": "CAR34T",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 123,
             "nom_acudiente": "LIL"
         },
@@ -223,7 +223,7 @@
             "apell_camper": "ERE",
             "edad_camper": 12,
             "Dirr_camper": "ERRE",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 34,
             "nom_acudiente": "FGFGF"
         },
@@ -253,7 +253,7 @@
             "apell_camper": "GUTIERREZ",
             "edad_camper": 15,
             "Dirr_camper": "AV. PRINCIPAL",
-            "Estado": "preinscrito",
+            "Estado": "reprobado",
             "cc_acudi": 76543,
             "nom_acudiente": "CARLOS GUTIERREZ"
         },
@@ -263,7 +263,7 @@
             "apell_camper": "SILVA",
             "edad_camper": 18,
             "Dirr_camper": "CALLE 22",
-            "Estado": "preinscrito",
+            "Estado": "inscrito",
             "cc_acudi": 9876,
             "nom_acudiente": "MARIA SILVA"
         },
@@ -442,7 +442,7 @@
                 "1",
                 "1"
             ],
-            "Estado": "pendiente"
+            "Estado": "contratado"
         },
         "6": {
             "cc_trainer": "6",
@@ -525,153 +525,64 @@
     "asig": {
         "M0": {
             "cod_asig": "M0",
-            "cod_ruta": "R03",
-            "cod_sala": "S02",
+            "cod_ruta": "R01",
+            "cod_sala": "S01",
             "cc_trainer": "2",
-            "mod_actual": "4",
+            "mod_actual": "1",
             "campers": [
-                "125",
                 "10042",
-                "124",
+                "123",
+                "345",
                 "2382"
             ],
-            "inicio": "34",
-            "fin": "45",
+            "inicio": "02-03-2025",
+            "fin": "02-01-2026",
             "cod_horario": "1"
-        },
-        "M1": {
-            "cod_asig": "M1",
-            "cod_ruta": "R01",
-            "cod_sala": "S03",
-            "cc_trainer": "2",
-            "mod_actual": "1",
-            "campers": [
-                "t",
-                "8909",
-                "123",
-                "2381"
-            ],
-            "inicio": "01-02-2025",
-            "fin": "1-10-2025",
-            "cod_horario": "2"
-        },
-        "M2": {
-            "cod_asig": "M2",
-            "cod_ruta": "R04",
-            "cod_sala": "S02",
-            "cc_trainer": "4",
-            "mod_actual": "1",
-            "campers": [
-                "1234"
-            ],
-            "inicio": "45",
-            "fin": "67",
-            "cod_horario": "3"
         }
     },
     "pruebas": {
-        "123": {
-            "cc_camper": "123",
+        "10042": {
+            "cc_camper": "10042",
+            "practica": 80.0,
+            "teorica": 90.0,
+            "promedio": 85.0,
+            "Fecha:": "2024-02-12"
+        },
+        "2381": {
+            "cc_camper": "2381",
             "practica": 90.0,
-            "teorica": 89.0,
-            "promedio": "89.5",
-            "Fecha:": "2024-02-11"
+            "teorica": 90.0,
+            "promedio": 90.0,
+            "Fecha:": "2024-02-12"
+        },
+        "1234": {
+            "cc_camper": "1234",
+            "practica": 100.0,
+            "teorica": 100.0,
+            "promedio": 100.0,
+            "Fecha:": "2024-02-12"
+        },
+        "345": {
+            "cc_camper": "345",
+            "practica": 80.0,
+            "teorica": 67.0,
+            "promedio": 73.5,
+            "Fecha:": "2024-02-12"
+        },
+        "10043": {
+            "cc_camper": "10043",
+            "practica": 60.0,
+            "teorica": 40.0,
+            "promedio": 50.0,
+            "Fecha:": "2024-02-12"
+        },
+        "2382": {
+            "cc_camper": "2382",
+            "practica": 73.0,
+            "teorica": 93.0,
+            "promedio": 83.0,
+            "Fecha:": "2024-02-12"
         }
     },
-    "notas": {
-        "M0": {
-            "Mod1": {
-                "125": {
-                    "teorica": 60.0,
-                    "practica": 50.0,
-                    "quices": 80.0,
-                    "nota_ finals": 56.0,
-                    "desicion": "Reprobo"
-                },
-                "10042": {
-                    "teorica": 36.0,
-                    "practica": 59.0,
-                    "quices": 80.0,
-                    "nota_ finals": 54.1,
-                    "desicion": "Reprobo"
-                },
-                "124": {
-                    "teorica": 80.0,
-                    "practica": 80.0,
-                    "quices": 80.0,
-                    "nota_ finals": 80.0,
-                    "desicion": "Aprobo"
-                },
-                "2382": {
-                    "teorica": 60.0,
-                    "practica": 65.0,
-                    "quices": 65.0,
-                    "nota_ finals": 63.5,
-                    "desicion": "Aprobo"
-                }
-            },
-            "Mod2": {
-                "125": {
-                    "teorica": 80.0,
-                    "practica": 60.0,
-                    "quices": 80.0,
-                    "nota_ finals": 68.0,
-                    "desicion": "Aprobo"
-                },
-                "10042": {
-                    "teorica": 90.0,
-                    "practica": 90.0,
-                    "quices": 90.0,
-                    "nota_ finals": 90.0,
-                    "desicion": "Aprobo"
-                },
-                "124": {
-                    "teorica": 60.0,
-                    "practica": 60.0,
-                    "quices": 90.0,
-                    "nota_ finals": 63.0,
-                    "desicion": "Aprobo"
-                },
-                "2382": {
-                    "teorica": 80.0,
-                    "practica": 70.0,
-                    "quices": 80.0,
-                    "nota_ finals": 74.0,
-                    "desicion": "Aprobo"
-                }
-            },
-            "Mod3": {
-                "125": {
-                    "teorica": 50.0,
-                    "practica": 50.0,
-                    "quices": 50.0,
-                    "nota_ finals": "50.0",
-                    "desicion": "reprobo"
-                },
-                "10042": {
-                    "teorica": 80.0,
-                    "practica": 90.0,
-                    "quices": 90.0,
-                    "nota_ finals": "87.0",
-                    "desicion": "Aprobo"
-                },
-                "124": {
-                    "teorica": 60.0,
-                    "practica": 80.0,
-                    "quices": 80.0,
-                    "nota_ finals": "74.0",
-                    "desicion": "Aprobo"
-                },
-                "2382": {
-                    "teorica": 80.0,
-                    "practica": 80.0,
-                    "quices": 80.0,
-                    "nota_ finals": "80.0",
-                    "desicion": "Aprobo"
-                }
-            },
-            "Mod4": {},
-            "Mod5": {}
-        }
-    }
+    "notas": {}
 }

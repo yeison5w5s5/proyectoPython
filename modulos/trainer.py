@@ -1,9 +1,30 @@
 from os import system
 from .data import datos
 from .sistema import continuar, guardar, numeros, listar, enteros
-from . import sistema, asignacion
+from . import sistema, asignacion, coordinacion
 import json
 
+def estadoTrai():
+    lista={"2":"2"}
+    for trainer1 in datos["trainer"]:
+        trainer=datos["trainer"][trainer1]
+        if trainer["Estado"]=="pendiente":
+            lista[trainer1]=trainer
+    listar("{:<10}",lista)
+    while True:
+        cTrainer=enteros("ingresa la identificacion del trainer: ")
+        if str(cTrainer) not in lista:
+            coordinacion.mcoordi() if continuar(2)== False else estadoTrai()
+        else:
+            print("¿Quieres contratar al trainer?")
+            if continuar("")==True:
+                datos["trainer"][str(cTrainer)]["Estado"]="contratado"
+                sistema.datos=datos
+                guardar(1)
+                coordinacion.mcoordi()
+            else:
+                coordinacion.mcoordi()
+            
 def login():
     cTrainer= input("ingresa tu numero de identificacion: ")
     if cTrainer not in datos["trainer"]:

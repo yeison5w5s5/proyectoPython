@@ -46,7 +46,12 @@ def validSala(horario):
 #valida camper y devuelve lista
 def validCamper(cSala,previo):
     mal=0
-    lista= {"0":"salto"} if previo==[] else previo
+    lista={}
+    if previo==[]:
+        lista= {"0":"salto"}
+    else:
+        for i in previo:
+            lista[i]=datos["camper"][i]
     listacamper=[]
     for i in datos["camper"]:
         if datos["camper"][i]["Estado"]=="inscrito":
@@ -60,7 +65,7 @@ def validCamper(cSala,previo):
     while True:
         cCamper=input("dijita la identificacion del camper: ")
         if cCamper in lista:
-            if (listacamper)<int(datos["Salas"][cSala]["capacidad"]):
+            if len(listacamper)<int(datos["salas"][cSala]["capacidad"]):
                 listacamper.append(cCamper)
             else:
                 print("""

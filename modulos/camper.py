@@ -18,7 +18,7 @@ def prueba(codigo):
     datacamp={"cc_camper":codigo,
         "practica":logica,
         "teorica":programacion,
-        "promedio":("{0:.1f}".format(promedio)),
+        "promedio":float("{0:.1f}".format(promedio)),
         "Fecha:": fecha}
     if promedio>60:
         datos["camper"][codigo]["Estado"]="inscrito"

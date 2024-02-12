@@ -10,7 +10,7 @@ def crear(a):
         "cod_sala":cod,
         "nom_sala":preingreso("ingrese el nombre de la sala: ",b),
         "capacidad":preingreso("Ingrese la capacidad de la sala: ",c),
-        "cod_horaio": [
+        "cod_horario": [
                 "0",
                 "0",
                 "0",
