@@ -25,7 +25,7 @@
             "cod_horario": [
                 "0",
                 "0",
-                "0",
+                "1",
                 "0"
             ]
         },
@@ -193,7 +193,7 @@
             "apell_camper": "SANTOS",
             "edad_camper": 21,
             "Dirr_camper": "CARR18",
-            "Estado": "inscrito",
+            "Estado": "aprobado",
             "cc_acudi": 854,
             "nom_acudiente": "OMAR WILCHEZ"
         },
@@ -213,7 +213,7 @@
             "apell_camper": "GOMEZ",
             "edad_camper": 20,
             "Dirr_camper": "CAR34T",
-            "Estado": "inscrito",
+            "Estado": "Enriesgo",
             "cc_acudi": 123,
             "nom_acudiente": "LIL"
         },
@@ -508,7 +508,7 @@
                 "0",
                 "1"
             ],
-            "Estado": "pendiente"
+            "Estado": "contratado"
         },
         "34567": {
             "cc_trainer": 34567,
@@ -518,6 +518,28 @@
                 "1",
                 "0",
                 "0"
+            ],
+            "Estado": "pendiente"
+        },
+        "456": {
+            "cc_trainer": 456,
+            "nom_trainer": "CAROL GOMEZ",
+            "cod_horario": [
+                "1",
+                "1",
+                "1",
+                "1"
+            ],
+            "Estado": "pendiente"
+        },
+        "1212": {
+            "cc_trainer": 1212,
+            "nom_trainer": "CAMILO SUAVE",
+            "cod_horario": [
+                "1",
+                "0",
+                "1",
+                "1"
             ],
             "Estado": "pendiente"
         }
@@ -538,6 +560,20 @@
             "inicio": "02-03-2025",
             "fin": "02-01-2026",
             "cod_horario": "1"
+        },
+        "M1": {
+            "cod_asig": "M1",
+            "cod_ruta": "R03",
+            "cod_sala": "S02",
+            "cc_trainer": "10",
+            "mod_actual": "3",
+            "campers": [
+                "1234",
+                "2381"
+            ],
+            "inicio": "02/02/2024",
+            "fin": "02/12/2024",
+            "cod_horario": "3"
         }
     },
     "pruebas": {
@@ -584,5 +620,43 @@
             "Fecha:": "2024-02-12"
         }
     },
-    "notas": {}
+    "notas": {
+        "M1": {
+            "Mod1": {
+                "1234": {
+                    "teorica": 80.0,
+                    "practica": 80.0,
+                    "quices": 70.0,
+                    "nota_ finals": "79.0",
+                    "desicion": "Aprobo"
+                },
+                "2381": {
+                    "teorica": 90.0,
+                    "practica": 89.0,
+                    "quices": 98.0,
+                    "nota_ finals": "90.2",
+                    "desicion": "Aprobo"
+                }
+            },
+            "Mod2": {
+                "1234": {
+                    "teorica": 50.0,
+                    "practica": 50.0,
+                    "quices": 60.0,
+                    "nota_ finals": "51.0",
+                    "desicion": "reprobo"
+                },
+                "2381": {
+                    "teorica": 80.0,
+                    "practica": 80.0,
+                    "quices": 90.0,
+                    "nota_ finals": "81.0",
+                    "desicion": "Aprobo"
+                }
+            },
+            "Mod3": {},
+            "Mod4": {},
+            "Mod5": {}
+        }
+    }
 }

@@ -1,6 +1,6 @@
 from os import system
 from .data import datos
-from .sistema import continuar, guardar, numeros, listar, enteros
+from .sistema import continuar, guardar, numeros, listar, enteros, unoOcero, traejson
 from . import sistema, asignacion, coordinacion
 import json
 
@@ -10,7 +10,7 @@ def estadoTrai():
         trainer=datos["trainer"][trainer1]
         if trainer["Estado"]=="pendiente":
             lista[trainer1]=trainer
-    listar("{:<10}",lista)
+    listar("{:<20}",lista)
     while True:
         cTrainer=enteros("ingresa la identificacion del trainer: ")
         if str(cTrainer) not in lista:
@@ -26,6 +26,7 @@ def estadoTrai():
                 coordinacion.mcoordi()
             
 def login():
+    datos=traejson()
     cTrainer= input("ingresa tu numero de identificacion: ")
     if cTrainer not in datos["trainer"]:
         login() if continuar(2)==True else mtrainer()
@@ -60,23 +61,25 @@ def notasCampers(cGrupo,cTrainer):
         listar("{:<10}",lista)
         lista={"0":"0"}
         print("\t\t-------Notas-------")
-        for i in datos["notas"][cGrupo]:
-            if datos["notas"][cGrupo][i]=={}:
-                pass
-            else:
-                notas= datos["notas"][cGrupo][i][camper]
-                info={
-                    "modulo":i,
-                    "Teorioca":notas["teorica"],
-                    "Practica":notas["practica"],
-                    "Quices":notas["quices"],
-                    "Final":notas["nota_ finals"],
-                    "Desicion":notas["desicion"]
-                }
-                lista[i]=info
-        listar("{:<10}",lista)
-        print("\033[1;94m------------------------------------------------------------------------------\033[0m\n")
-
+        if cGrupo not in datos["notas"]:
+            print("\t\tAun no haz puesto notas")
+        else:
+            for i in datos["notas"][cGrupo]:
+                if datos["notas"][cGrupo][i]=={}:
+                    pass
+                else:
+                    notas= datos["notas"][cGrupo][i][camper]
+                    info={
+                        "modulo":i,
+                        "Teorioca":notas["teorica"],
+                        "Practica":notas["practica"],
+                        "Quices":notas["quices"],
+                        "Final":notas["nota_ finals"],
+                        "Desicion":notas["desicion"]
+                    }
+                    lista[i]=info
+            listar("{:<10}",lista)
+            print("\033[1;94m------------------------------------------------------------------------------\033[0m\n")
     opcTrainer(cTrainer)
 
 def verGrupo(cTrainer):
@@ -162,15 +165,16 @@ def info():
         data={
             "cc_trainer":cc,
             "nom_trainer":nombre,
-            "cod_horario":[input(f'\n{i}- {datos["horarios"][i]}: ') for i in datos["horarios"]],
+            "cod_horario":[unoOcero(f'\n{i}- {datos["horarios"][i]}: ') for i in datos["horarios"]],
             "Estado":"pendiente"
         }
         datos["trainer"][cc]=data
         sistema.datos=datos
         guardar(1)
-    return data
+        mtrainer()
 
 def opcTrainer(cTrainer):
+    datos=traejson()
     trainer=datos["trainer"][cTrainer]
     while True:
         print(f"""

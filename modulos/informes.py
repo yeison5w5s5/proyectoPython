@@ -120,7 +120,7 @@ def minformes():
         6- Mostrar cuantos campers perdieron y aprobaron cada uno de los modulos 
         teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.
         
-        """)
+        0- Salir""")
         opc=input(": ")
         match opc:
             case "1":

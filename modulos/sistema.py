@@ -28,6 +28,15 @@ def continuar(a):
                 print("opcion no disponible")
     return x
 
+def unoOcero(mensaje):
+    while True:
+        try:
+            num=int(input(mensaje))
+            if num==1 or num==0:
+                return str(num)
+        except ValueError:
+            print("Por favor solo ingresa 1 o 0")
+
 def guardar(a):
     with open("modulos/storage/data.json", "w") as f:
         data=json.dumps(datos, indent=4)
@@ -37,7 +46,6 @@ def guardar(a):
     print("\t\033[1;32mguardado\033[0m") if a==1 else print("\t\033[1;31mEliminado\033[0m")
     
 def traejson():
-    system("clear")
     with open("modulos/storage/data.json", "r") as f:
                 datos=json.loads(f.read())
                 f.close()
