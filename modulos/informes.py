@@ -1,6 +1,6 @@
 from .sistema import listar
 from .data import datos
-from . import sistema, coordinacion
+from . import sistema, coordinacion, asignacion
 from os import system
 
 def informe1():
@@ -47,6 +47,60 @@ def informe4():
 
     listar("{:<15}",lista)
 
+def informe5():
+    for i in datos["asig"]:
+        asignacion.datos=datos
+        grupo=datos["asig"][i]
+        print(asignacion.printgrupo(i))
+        lista= {"0":"salto"}
+        for i in grupo["campers"]:
+            camper=datos["camper"][i]
+            info={
+                "cc":i,
+                "nombre":camper["nom_camper"],
+                "apellido":camper["apell_camper"],
+            }
+            lista[i]=info
+        listar("{:<15}",lista)
+
+def informe6():
+    for i in datos["asig"]:
+        cGrupo=i
+        asignacion.datos=datos
+        print(asignacion.printgrupo(i))
+        grupo=datos["asig"][cGrupo]
+        for camper in grupo["campers"]:
+            lista={"0":"0"}
+            info={}
+            datacamper=datos["camper"][camper]
+            info={
+                    "CC_camper":camper,
+                    "Nombre": datacamper["nom_camper"],
+                    "Apellido":datacamper["apell_camper"],
+                    "Estado":datacamper["Estado"]
+                }
+            lista[camper]=info
+            listar("{:<10}",lista)
+            lista={"0":"0"}
+            print("\t\t-------Notas-------")
+            if cGrupo in datos["notas"]:
+                for i in datos["notas"][cGrupo]:
+                    if datos["notas"][cGrupo][i]=={}:
+                        pass
+                    else:
+                        notas= datos["notas"][cGrupo][i][camper]
+                        info={
+                            "modulo":i,
+                            "Teorioca":notas["teorica"],
+                            "Practica":notas["practica"],
+                            "Quices":notas["quices"],
+                            "Final":notas["nota_ finals"],
+                            "Desicion":notas["desicion"]
+                        }
+                        lista[i]=info
+            listar("{:<10}",lista)
+            print("\033[1;94m------------------------------------------------------------------------------\033[0m\n")
+
 def minformes():
     while True:   
         print(f"""
@@ -77,10 +131,10 @@ def minformes():
                   informe3()
             case "4":
                   informe4()
-            # case "5":
-            #       informe5()
-            # case "6":
-            #       informe6()
+            case "5":
+                  informe5()
+            case "6":
+                  informe6()
             case "0":
                   coordinacion.mcoordi()
 
